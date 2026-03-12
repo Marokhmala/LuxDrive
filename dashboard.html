@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — LuxeDrive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="dashboard">
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><div class="brand-icon">L</div>LuxeDrive</a>
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="index.html" class="btn btn-ghost btn-sm">Sign Out</a>
+      </div>
+      <div class="navbar-toggle" aria-label="Menu"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>My <span class="text-accent">Dashboard</span></h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <span>Dashboard</span>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <section class="dashboard-section">
+    <div class="container">
+      <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+          <div class="dashboard-user">
+            <div class="dashboard-avatar">JD</div>
+            <h3>John Doe</h3>
+            <p>john@example.com</p>
+          </div>
+          <nav class="dashboard-nav">
+            <a href="#" class="active" data-tab="bookings">📋 My Bookings</a>
+            <a href="#" data-tab="profile">👤 Profile Settings</a>
+            <a href="#" data-tab="favorites">♥ Favorites</a>
+            <a href="#" data-tab="payments">💳 Payment Methods</a>
+            <a href="index.html">🚪 Sign Out</a>
+          </nav>
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="dashboard-content">
+          <!-- Stats -->
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <div class="stat-card-icon">📋</div>
+              <h3>5</h3>
+              <p>Total Bookings</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon">🚗</div>
+              <h3>2</h3>
+              <p>Active Rentals</p>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-icon">💰</div>
+              <h3>$4,610</h3>
+              <p>Total Spent</p>
+            </div>
+          </div>
+
+          <!-- Bookings Tab -->
+          <div class="dashboard-tab" data-tab="bookings">
+            <h2>My Bookings</h2>
+            <div class="booking-list" id="bookings-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Profile Tab -->
+          <div class="dashboard-tab" data-tab="profile" style="display:none">
+            <h2>Profile Settings</h2>
+            <div class="booking-card" style="margin-top:20px">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-input" value="John Doe">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-input" value="john@example.com">
+                </div>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-input" value="+1 (555) 123-4567">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Location</label>
+                  <input type="text" class="form-input" value="New York, NY">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Driver's License</label>
+                <input type="text" class="form-input" value="DL-12345678">
+              </div>
+              <button class="btn btn-primary" onclick="App.showToast('success','Saved','Profile updated successfully')" style="margin-top:8px">Save Changes</button>
+            </div>
+          </div>
+
+          <!-- Favorites Tab -->
+          <div class="dashboard-tab" data-tab="favorites" style="display:none">
+            <h2>My Favorites</h2>
+            <p class="text-muted" style="margin-top:16px">You haven't added any favorites yet. Browse our <a href="cars.html" style="color:var(--accent)">fleet</a> to add cars to your wishlist.</p>
+          </div>
+
+          <!-- Payments Tab -->
+          <div class="dashboard-tab" data-tab="payments" style="display:none">
+            <h2>Payment Methods</h2>
+            <div class="booking-card" style="margin-top:20px">
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:16px; background:var(--bg); border-radius:var(--radius-sm); margin-bottom:12px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <span style="font-size:1.5rem">💳</span>
+                  <div>
+                    <strong>•••• •••• •••• 4242</strong><br>
+                    <small class="text-muted">Expires 12/27</small>
+                  </div>
+                </div>
+                <span class="badge badge-success">Default</span>
+              </div>
+              <button class="btn btn-outline btn-sm">+ Add New Card</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 LuxeDrive. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

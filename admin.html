@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — LuxeDrive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="admin">
+
+  <div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-brand">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">L</div>
+          LuxeDrive
+        </a>
+        <p style="font-size:0.75rem; color:var(--text-muted); margin-top:8px">Admin Panel</p>
+      </div>
+      <nav class="admin-sidebar-nav">
+        <span class="admin-nav-label">Main</span>
+        <a href="#" class="active" data-tab="dashboard">📊 Dashboard</a>
+        <a href="#" data-tab="cars">🚗 Manage Cars</a>
+        <a href="#" data-tab="bookings">📋 Manage Bookings</a>
+        <a href="#" data-tab="users">👥 Manage Users</a>
+        <span class="admin-nav-label">Settings</span>
+        <a href="#">⚙ Settings</a>
+        <a href="#">📄 Reports</a>
+        <a href="index.html">🚪 Back to Site</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main" id="admin-content">
+      <!-- Rendered by JS -->
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Modal Title</h2>
+        <button class="modal-close" onclick="App.closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamic content -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="App.closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="App.saveModal()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

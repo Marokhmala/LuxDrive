@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — LuxeDrive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Auth feedback styles */
+    .auth-error {
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid rgba(220, 53, 69, 0.3);
+      color: #dc3545;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      margin-bottom: 16px;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .auth-success {
+      background: rgba(40, 167, 69, 0.1);
+      border: 1px solid rgba(40, 167, 69, 0.3);
+      color: #28a745;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      margin-bottom: 16px;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .auth-error.visible,
+    .auth-success.visible {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Loading spinner inside button */
+    .btn-loading {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .btn-loading::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: translateY(-50%) rotate(360deg);
+      }
+    }
+
+    /* Input error highlight */
+    .form-input.input-error {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+    }
+  </style>
+</head>
+
+<body data-page="login">
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">L</div>
+        LuxeDrive
+      </a>
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="navbar-actions">
+        <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+      <div class="navbar-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- AUTH -->
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <a href="index.html" class="navbar-brand">
+            <div class="brand-icon">
+              <img src="logo/LuxDrive-logo.png" />
+            </div>
+          </a>
+          <h1>Welcome Back</h1>
+          <p>Sign in to your account to continue</p>
+        </div>
+
+        <!-- Feedback messages -->
+        <div id="auth-error" class="auth-error" role="alert"></div>
+        <div id="auth-success" class="auth-success" role="status"></div>
+
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="login-phone">Phone Number</label>
+            <input type="tel" class="form-input" id="login-phone" placeholder="+1 (555) 123-4567" required
+              autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input type="password" class="form-input" id="login-password" placeholder="••••••••" required
+              autocomplete="current-password" />
+          </div>
+          <div style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 24px;
+              ">
+            <label class="checkbox-item" style="font-size: 0.85rem">
+              <input type="checkbox" id="remember-me" /><span class="checkmark"></span>
+              Remember me
+            </label>
+            <a href="#" style="font-size: 0.85rem; color: var(--accent)">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="login-btn">
+            Sign In
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          Don't have an account? <a href="register.html">Create one</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/auth.js"></script>
+  <script>
+    /* ============================================================
+     LuxeDrive — Auth Module
+     Session logic moved to js/auth.js
+  ============================================================ */
+
+    const API_BASE = "https://rentcar.stepprojects.ge/api";
+
+    /* ---------- UI helpers ---------- */
+    function showError(msg) {
+      const el = document.getElementById("auth-error");
+      const ok = document.getElementById("auth-success");
+      ok.classList.remove("visible");
+      el.textContent = msg;
+      el.classList.add("visible");
+    }
+
+    function showSuccess(msg) {
+      const el = document.getElementById("auth-success");
+      const err = document.getElementById("auth-error");
+      err.classList.remove("visible");
+      el.textContent = msg;
+      el.classList.add("visible");
+    }
+
+    function clearMessages() {
+      document.getElementById("auth-error").classList.remove("visible");
+      document.getElementById("auth-success").classList.remove("visible");
+    }
+
+    function setLoading(loading) {
+      const btn = document.getElementById("login-btn");
+      if (loading) {
+        btn.classList.add("btn-loading");
+        btn.textContent = "Signing in…";
+      } else {
+        btn.classList.remove("btn-loading");
+        btn.textContent = "Sign In";
+      }
+    }
+
+    function clearInputErrors() {
+      document
+        .querySelectorAll(".form-input.input-error")
+        .forEach((el) => el.classList.remove("input-error"));
+    }
+
+    /* ---------- Login API call ---------- */
+    async function loginUser(phoneNumber, password) {
+      // Login uses phoneNumber + password
+      const body = { phoneNumber, password };
+
+      const response = await fetch(`${API_BASE}/Users/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          accept: "*/*",
+        },
+        body: JSON.stringify(body),
+      });
+
+      // API may return plain text (e.g. "Wrong Password") or JSON
+      const contentType = response.headers.get("content-type") || "";
+      let data = null,
+        plainText = null;
+      if (contentType.includes("application/json")) {
+        try {
+          data = await response.json();
+        } catch {
+          data = null;
+        }
+      } else {
+        plainText = (await response.text()).replace(/^"|"$/g, "").trim();
+      }
+
+      if (!response.ok) {
+        const msg =
+          plainText ||
+          data?.message ||
+          data?.title ||
+          `Login failed (${response.status})`;
+        throw new Error(msg);
+      }
+
+      return data;
+    }
+
+    /* ---------- Form submit ---------- */
+    document
+      .getElementById("login-form")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
+        clearMessages();
+        clearInputErrors();
+
+        const emailEl = document.getElementById("login-phone");
+        const passwordEl = document.getElementById("login-password");
+        const rememberMe = document.getElementById("remember-me").checked;
+
+        const phone = emailEl.value.trim();
+        const password = passwordEl.value;
+
+        // Basic client-side validation
+        if (!phone) {
+          emailEl.classList.add("input-error");
+          showError("Please enter your phone number.");
+          emailEl.focus();
+          return;
+        }
+        if (!password) {
+          passwordEl.classList.add("input-error");
+          showError("Please enter your password.");
+          passwordEl.focus();
+          return;
+        }
+
+        setLoading(true);
+
+        try {
+          const data = await loginUser(phone, password);
+
+          /* Build session object from whatever the API returns.
+         Common fields: token / accessToken / jwt, user info, expiry. */
+          const session = {
+            token: data.token || data.accessToken || data.jwt || null,
+            user: {
+              id: data.id || data.userId || null,
+              email: data.email || email,
+              firstName: data.firstName || null,
+              lastName: data.lastName || null,
+              role: data.role || null,
+              phone: data.phoneNumber || null,
+            },
+            // Parse expiry if provided (seconds → ms), otherwise 8 h default
+            expiresAt: data.expiresAt
+              ? new Date(data.expiresAt).getTime()
+              : data.expiresIn
+                ? Date.now() + data.expiresIn * 1000
+                : Date.now() + 8 * 60 * 60 * 1000,
+            loggedInAt: Date.now(),
+          };
+
+          Session.save(session, rememberMe);
+
+          showSuccess("Login successful! Redirecting…");
+
+          // Short delay so the user sees the success message
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 900);
+        } catch (err) {
+          showError(err.message || "Something went wrong. Please try again.");
+          passwordEl.value = "";
+          passwordEl.classList.add("input-error");
+          passwordEl.focus();
+        } finally {
+          setLoading(false);
+        }
+      });
+
+    // Clear error highlight on input
+    ["login-phone", "login-password"].forEach((id) => {
+      document.getElementById(id).addEventListener("input", () => {
+        document.getElementById(id).classList.remove("input-error");
+        clearMessages();
+      });
+    });
+
+    // Pre-fill email if redirected from register page
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("phone")) {
+      document.getElementById("login-phone").value = params.get("phone");
+      document.getElementById("login-password").focus();
+      showSuccess("Account created! Please sign in.");
+    }
+  </script>
+</body>
+
+</html>

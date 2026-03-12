@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuxeDrive — Premium Car Rentals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="home">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">
+            <img src="logo/LuxDrive-logo.png" />
+          </div>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html" class="active">Home</a>
+          <a href="cars.html">Cars</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <div class="navbar-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">✦ Premium Luxury Rentals</div>
+          <h1 class="hero-title">
+            Experience <span class="highlight">Luxury</span> on Every Drive
+          </h1>
+          <p class="hero-description">
+            Discover our handpicked collection of the world's finest
+            automobiles. From sleek sports cars to elegant grand tourers, your
+            dream car awaits.
+          </p>
+          <div class="hero-buttons">
+            <a href="cars.html" class="btn btn-primary btn-lg">Explore Fleet</a>
+            <a href="about.html" class="btn btn-outline btn-lg">Learn More</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-number" id="car-count">0</div>
+              <div class="hero-stat-label">Luxury Cars</div>
+            </div>
+
+            <div class="hero-stat">
+              <div class="hero-stat-number" id="happy-clients">12000</div>
+              <div class="hero-stat-label">Happy Clients</div>
+            </div>
+
+            <div class="hero-stat">
+              <div class="hero-stat-number" id="satisfaction">0%</div>
+              <div class="hero-stat-label">Satisfaction</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-glow"></div>
+          <div
+            style="
+              font-size: 10rem;
+              filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+              animation: heroFloat 6s ease-in-out infinite;
+            "
+          >
+            🏎️
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH BOX -->
+    <div class="container">
+      <form class="search-box" id="search-form">
+        <div class="search-box-inner">
+          <div class="search-field">
+            <label>Pickup Location</label>
+            <select id="location-select">
+              <option value="">All Locations</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label>Pickup Date</label>
+            <input type="date" />
+          </div>
+          <div class="search-field">
+            <label>Return Date</label>
+            <input type="date" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">
+            Search Cars
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- FEATURED CARS -->
+    <section class="section featured-cars">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Our Fleet</div>
+          <h2 class="section-title">
+            Featured <span class="text-accent">Luxury</span> Cars
+          </h2>
+          <p class="section-subtitle">
+            Explore our handpicked selection of premium vehicles for an
+            extraordinary driving experience
+          </p>
+        </div>
+        <div class="cars-grid stagger-children" id="featured-cars-grid">
+          <!-- Rendered by JS -->
+        </div>
+        <div style="text-align: center; margin-top: 48px">
+          <a href="cars.html" class="btn btn-outline btn-lg">View All Cars →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Simple Process</div>
+          <h2 class="section-title">
+            How It <span class="text-accent">Works</span>
+          </h2>
+          <p class="section-subtitle">
+            Rent your dream car in just three simple steps
+          </p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card fade-in">
+            <div class="step-icon">
+              🚗
+              <div class="step-number">1</div>
+            </div>
+            <h3>Choose Your Car</h3>
+            <p>
+              Browse our extensive collection of premium vehicles and find the
+              perfect match for your journey
+            </p>
+          </div>
+          <div class="step-card fade-in">
+            <div class="step-icon">
+              📅
+              <div class="step-number">2</div>
+            </div>
+            <h3>Select Dates</h3>
+            <p>
+              Pick your preferred dates, location, and any additional services
+              you might need
+            </p>
+          </div>
+          <div class="step-card fade-in">
+            <div class="step-icon">
+              🔑
+              <div class="step-number">3</div>
+            </div>
+            <h3>Book & Drive</h3>
+            <p>
+              Complete your booking with secure payment and get ready for an
+              unforgettable experience
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Our Advantages</div>
+          <h2 class="section-title">
+            Why Choose <span class="text-accent">LuxeDrive</span>
+          </h2>
+          <p class="section-subtitle">
+            We provide the best luxury car rental experience with unmatched
+            service
+          </p>
+        </div>
+        <div class="features-grid stagger-children">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">💎</div>
+            <h3>Premium Fleet</h3>
+            <p>
+              Access to over 200+ luxury and exotic vehicles from the world's
+              most prestigious brands
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🏷️</div>
+            <h3>Best Prices</h3>
+            <p>
+              Competitive pricing with no hidden fees. Price match guarantee on
+              all bookings
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Booking</h3>
+            <p>
+              Book your dream car in minutes with our streamlined reservation
+              process
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🛡️</div>
+            <h3>Full Insurance</h3>
+            <p>
+              Comprehensive insurance coverage included with every rental for
+              peace of mind
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">🕐</div>
+            <h3>24/7 Support</h3>
+            <p>
+              Round-the-clock customer support for assistance whenever you need
+              it
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">📍</div>
+            <h3>Flexible Pickup</h3>
+            <p>
+              Multiple pickup locations with free delivery to airports, hotels,
+              and residences
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Testimonials</div>
+          <h2 class="section-title">
+            What Our <span class="text-accent">Clients</span> Say
+          </h2>
+          <p class="section-subtitle">
+            Hear from our satisfied clients who experienced the LuxeDrive
+            difference
+          </p>
+        </div>
+        <div class="testimonials-grid stagger-children">
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Absolutely incredible experience. The Mercedes-AMG was spotless
+              and the service was impeccable. Will definitely be coming back for
+              my next trip."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JD</div>
+              <div class="testimonial-info">
+                <h4>James Davidson</h4>
+                <p>Business Executive</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "LuxeDrive made our anniversary weekend truly special. The Porsche
+              911 was a dream to drive along the coast. Exceptional service from
+              start to finish."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SK</div>
+              <div class="testimonial-info">
+                <h4>Sarah Kim</h4>
+                <p>Travel Enthusiast</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card fade-in">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Best luxury car rental service I've ever used. The booking
+              process was seamless, and the Rolls-Royce exceeded all
+              expectations. Truly a five-star experience."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MR</div>
+              <div class="testimonial-info">
+                <h4>Michael Roberts</h4>
+                <p>Entrepreneur</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-content fade-in">
+          <h2>
+            Ready for an <span class="text-accent">Extraordinary</span> Drive?
+          </h2>
+          <p>
+            Join thousands of satisfied clients and experience luxury driving at
+            its finest
+          </p>
+          <a href="cars.html" class="btn btn-primary btn-lg"
+            >Browse Our Fleet →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-brand">
+              <div class="brand-icon">L</div>
+              LuxeDrive
+            </a>
+            <p>
+              Premium luxury car rentals for the discerning driver. Experience
+              the finest automobiles with world-class service.
+            </p>
+            <div class="footer-social">
+              <a href="#">𝕏</a>
+              <a href="#">𝕗</a>
+              <a href="#">📷</a>
+              <a href="#">in</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="cars.html">Our Fleet</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Rental Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="#">hello@luxedrive.com</a></li>
+              <li><a href="#">+1 (555) 123-4567</a></li>
+              <li><a href="#">New York, NY 10001</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 LuxeDrive. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>
