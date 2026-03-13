@@ -1,186 +1,224 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Car Details — LuxeDrive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body data-page="car-details">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Details — LuxeDrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="car-details">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">
+            <img src="logo/LuxDrive-logo.png" />
+          </div>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html">Home</a>
+          <a href="cars.html" class="active">Cars</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <div class="navbar-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
 
-  <!-- NAVBAR -->
-  <nav class="navbar scrolled">
-    <div class="container">
-      <a href="index.html" class="navbar-brand">
-        <div class="brand-icon">L</div>
-        LuxeDrive
-      </a>
-      <div class="navbar-nav">
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1 id="detail-car-name">Car Details</h1>
+      <div class="breadcrumb">
         <a href="index.html">Home</a>
-        <a href="cars.html" class="active">Cars</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="navbar-actions">
-        <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
-        <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
-      </div>
-      <div class="navbar-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
+        <span class="separator">/</span>
+        <a href="cars.html">Cars</a>
+        <span class="separator">/</span>
+        <span>Details</span>
       </div>
     </div>
-  </nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <h1 id="detail-car-name">Car Details</h1>
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="separator">/</span>
-      <a href="cars.html">Cars</a>
-      <span class="separator">/</span>
-      <span>Details</span>
-    </div>
-  </div>
-
-  <!-- CAR DETAILS -->
-  <section class="car-details-section">
-    <div class="container">
-      <div class="car-details-grid">
-        <!-- GALLERY -->
-        <div class="car-gallery">
-          <div class="gallery-main">
-            <img id="gallery-main-img" src="" alt="Car" style="width:100%;height:100%;object-fit:cover;">
-          </div>
-          <div class="gallery-thumbnails">
-            <div class="gallery-thumb active" data-index="0">
-              <img id="thumb-0" src="" alt="Thumbnail 1">
+    <!-- CAR DETAILS -->
+    <section class="car-details-section">
+      <div class="container">
+        <div class="car-details-grid">
+          <!-- GALLERY -->
+          <div class="car-gallery">
+            <div class="gallery-main">
+              <img
+                id="gallery-main-img"
+                src=""
+                alt="Car"
+                style="width: 100%; height: 100%; object-fit: cover"
+              />
             </div>
-            <div class="gallery-thumb" data-index="1">
-              <img id="thumb-1" src="" alt="Thumbnail 2">
-            </div>
-            <div class="gallery-thumb" data-index="2">
-              <img id="thumb-2" src="" alt="Thumbnail 3">
-            </div>
-          </div>
-        </div>
-
-        <!-- CAR INFO -->
-        <div class="car-info">
-          <div class="car-info-header">
-            <span class="badge badge-accent" id="detail-car-badge">Premium</span>
-            <h1 id="detail-car-name">Mercedes-AMG GT</h1>
-            <div class="car-info-meta">
-              <div class="rating" id="detail-car-rating">
-                <span class="stars">★★★★★</span> 5.0 (48 reviews)
+            <div class="gallery-thumbnails">
+              <div class="gallery-thumb active" data-index="0">
+                <img id="thumb-0" src="" alt="Thumbnail 1" />
               </div>
-              <span>•</span>
-              <span id="detail-car-year">2024</span>
-            </div>
-          </div>
-
-          <!-- SPECS -->
-          <div class="car-specs-grid">
-            <div class="spec-item">
-              <div class="spec-item-icon">⚙</div>
-              <div class="spec-item-text">
-                <label>Transmission</label>
-                <span id="detail-transmission">Automatic</span>
+              <div class="gallery-thumb" data-index="1">
+                <img id="thumb-1" src="" alt="Thumbnail 2" />
               </div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-item-icon">⛽</div>
-              <div class="spec-item-text">
-                <label>Fuel Type</label>
-                <span id="detail-fuel">Gasoline</span>
-              </div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-item-icon">👤</div>
-              <div class="spec-item-text">
-                <label>Seats</label>
-                <span id="detail-seats">2</span>
-              </div>
-            </div>
-            <div class="spec-item">
-              <div class="spec-item-icon">🎨</div>
-              <div class="spec-item-text">
-                <label>Color</label>
-                <span id="detail-color">Silver</span>
+              <div class="gallery-thumb" data-index="2">
+                <img id="thumb-2" src="" alt="Thumbnail 3" />
               </div>
             </div>
           </div>
 
-          <!-- PRICE & BOOKING -->
-          <div class="price-box">
-            <div class="price-main">
-              <span class="price-amount" id="detail-car-price">$450</span>
-              <span class="price-period">/ day</span>
-            </div>
-            <div class="booking-form-inline">
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label">Pickup Date</label>
-                  <input type="date" class="form-input" id="detail-pickup">
+          <!-- CAR INFO -->
+          <div class="car-info">
+            <div class="car-info-header">
+              <span class="badge badge-accent" id="detail-car-badge"
+                >Premium</span
+              >
+              <h1 id="detail-car-name">Mercedes-AMG GT</h1>
+              <div class="car-info-meta">
+                <div class="rating" id="detail-car-rating">
+                  <span class="stars">★★★★★</span> 5.0 (48 reviews)
                 </div>
-                <div class="form-group">
-                  <label class="form-label">Return Date</label>
-                  <input type="date" class="form-input" id="detail-return">
+                <span>•</span>
+                <span id="detail-car-year">2024</span>
+              </div>
+            </div>
+
+            <!-- SPECS -->
+            <div class="car-specs-grid">
+              <div class="spec-item">
+                <div class="spec-item-icon">⚙</div>
+                <div class="spec-item-text">
+                  <label>Transmission</label>
+                  <span id="detail-transmission">Automatic</span>
                 </div>
               </div>
-              <div class="total-line">
-                <span>Duration: <span id="detail-days">—</span></span>
-                <span class="total-amount" id="detail-total">$0</span>
+              <div class="spec-item">
+                <div class="spec-item-icon">⛽</div>
+                <div class="spec-item-text">
+                  <label>Fuel Type</label>
+                  <span id="detail-fuel">Gasoline</span>
+                </div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item-icon">👤</div>
+                <div class="spec-item-text">
+                  <label>Seats</label>
+                  <span id="detail-seats">2</span>
+                </div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-item-icon">🎨</div>
+                <div class="spec-item-text">
+                  <label>Color</label>
+                  <span id="detail-color">Silver</span>
+                </div>
               </div>
             </div>
-            <button class="btn btn-primary btn-block" id="book-now-btn" style="margin-top:20px">Book Now →</button>
+
+            <!-- PRICE & BOOKING -->
+            <div class="price-box">
+              <div class="price-main">
+                <span class="price-amount" id="detail-car-price">$450</span>
+                <span class="price-period">/ day</span>
+              </div>
+              <div class="booking-form-inline">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Pickup Date</label>
+                    <input type="date" class="form-input" id="detail-pickup" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Return Date</label>
+                    <input type="date" class="form-input" id="detail-return" />
+                  </div>
+                </div>
+                <div class="total-line">
+                  <span>Duration: <span id="detail-days">—</span></span>
+                  <span class="total-amount" id="detail-total">$0</span>
+                </div>
+              </div>
+              <button
+                class="btn btn-primary btn-block"
+                id="book-now-btn"
+                style="margin-top: 20px"
+              >
+                Book Now →
+              </button>
+            </div>
+          </div>
+
+          <!-- DESCRIPTION -->
+          <div class="car-description">
+            <h2>About This Car</h2>
+            <p id="detail-description">Loading description...</p>
+            <h3
+              style="
+                margin-top: 28px;
+                margin-bottom: 16px;
+                font-family: var(--font-display);
+              "
+            >
+              Features & Amenities
+            </h3>
+            <ul class="car-features-list" id="detail-features">
+              <!-- Rendered by JS -->
+            </ul>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- DESCRIPTION -->
-        <div class="car-description">
-          <h2>About This Car</h2>
-          <p id="detail-description">Loading description...</p>
-          <h3 style="margin-top:28px; margin-bottom:16px; font-family:var(--font-display)">Features & Amenities</h3>
-          <ul class="car-features-list" id="detail-features">
-            <!-- Rendered by JS -->
-          </ul>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-brand">
+              <div class="brand-icon">
+                <img src="logo/LuxDrive-logo.png" />
+              </div>
+            </a>
+            <p>Premium luxury car rentals for the discerning driver.</p>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="#">hello@luxedrive.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 LuxeDrive. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy</a><a href="#">Terms</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="navbar-brand"><div class="brand-icon">L</div>LuxeDrive</a>
-          <p>Premium luxury car rentals for the discerning driver.</p>
-        </div>
-        <div class="footer-column">
-          <h4>Company</h4>
-          <ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul>
-        </div>
-        <div class="footer-column">
-          <h4>Support</h4>
-          <ul><li><a href="#">FAQ</a></li><li><a href="#">Terms</a></li></ul>
-        </div>
-        <div class="footer-column">
-          <h4>Contact</h4>
-          <ul><li><a href="#">hello@luxedrive.com</a></li></ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 LuxeDrive. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/auth.js"></script>
-  <script src="js/car-details.js"></script>
-</body>
+    <script src="js/auth.js"></script>
+    <script src="js/car-details.js"></script>
+  </body>
 </html>

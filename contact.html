@@ -1,154 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us — LuxeDrive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body data-page="contact">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — LuxeDrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="contact">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">
+            <img src="logo/LuxDrive-logo.png" />
+          </div>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html">Home</a>
+          <a href="cars.html">Cars</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="active">Contact</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <div class="navbar-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
 
-  <!-- NAVBAR -->
-  <nav class="navbar scrolled">
-    <div class="container">
-      <a href="index.html" class="navbar-brand"><div class="brand-icon">L</div>LuxeDrive</a>
-      <div class="navbar-nav">
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Get In <span class="text-accent">Touch</span></h1>
+      <div class="breadcrumb">
         <a href="index.html">Home</a>
-        <a href="cars.html">Cars</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="active">Contact</a>
+        <span class="separator">/</span>
+        <span>Contact</span>
       </div>
-      <div class="navbar-actions">
-        <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
-        <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
-      </div>
-      <div class="navbar-toggle" aria-label="Menu"><span></span><span></span><span></span></div>
     </div>
-  </nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <h1>Get In <span class="text-accent">Touch</span></h1>
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="separator">/</span>
-      <span>Contact</span>
-    </div>
-  </div>
+    <!-- CONTACT -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- INFO -->
+          <div>
+            <div
+              class="section-label"
+              style="justify-content: flex-start; margin-bottom: 16px"
+            >
+              Contact Information
+            </div>
+            <h2
+              style="
+                font-family: var(--font-display);
+                font-size: 1.8rem;
+                margin-bottom: 16px;
+              "
+            >
+              We'd Love to Hear From You
+            </h2>
+            <p class="text-muted" style="margin-bottom: 32px; line-height: 1.7">
+              Have questions about our services? Want to make a special
+              arrangement? Our team is here to help make your luxury car
+              experience perfect.
+            </p>
 
-  <!-- CONTACT -->
-  <section class="section">
-    <div class="container">
-      <div class="contact-grid">
-        <!-- INFO -->
-        <div>
-          <div class="section-label" style="justify-content:flex-start; margin-bottom:16px">Contact Information</div>
-          <h2 style="font-family:var(--font-display); font-size:1.8rem; margin-bottom:16px">We'd Love to Hear From You</h2>
-          <p class="text-muted" style="margin-bottom:32px; line-height:1.7">Have questions about our services? Want to make a special arrangement? Our team is here to help make your luxury car experience perfect.</p>
-
-          <div class="contact-info-cards">
-            <div class="contact-info-card fade-in">
-              <div class="contact-info-icon">📧</div>
-              <div>
-                <h4>Email</h4>
-                <p>hello@luxedrive.com</p>
+            <div class="contact-info-cards">
+              <div class="contact-info-card fade-in">
+                <div class="contact-info-icon">📧</div>
+                <div>
+                  <h4>Email</h4>
+                  <p>hello@luxedrive.com</p>
+                </div>
+              </div>
+              <div class="contact-info-card fade-in">
+                <div class="contact-info-icon">📞</div>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+1 (555) 123-4567</p>
+                </div>
+              </div>
+              <div class="contact-info-card fade-in">
+                <div class="contact-info-icon">📍</div>
+                <div>
+                  <h4>Location</h4>
+                  <p>350 Fifth Avenue, New York, NY 10001</p>
+                </div>
+              </div>
+              <div class="contact-info-card fade-in">
+                <div class="contact-info-icon">🕐</div>
+                <div>
+                  <h4>Business Hours</h4>
+                  <p>Mon-Sat: 8AM-8PM • Sun: 10AM-6PM</p>
+                </div>
               </div>
             </div>
-            <div class="contact-info-card fade-in">
-              <div class="contact-info-icon">📞</div>
-              <div>
-                <h4>Phone</h4>
-                <p>+1 (555) 123-4567</p>
-              </div>
-            </div>
-            <div class="contact-info-card fade-in">
-              <div class="contact-info-icon">📍</div>
-              <div>
-                <h4>Location</h4>
-                <p>350 Fifth Avenue, New York, NY 10001</p>
-              </div>
-            </div>
-            <div class="contact-info-card fade-in">
-              <div class="contact-info-icon">🕐</div>
-              <div>
-                <h4>Business Hours</h4>
-                <p>Mon-Sat: 8AM-8PM • Sun: 10AM-6PM</p>
-              </div>
+
+            <div class="contact-map fade-in">
+              📍 Interactive Map Placeholder
             </div>
           </div>
 
-          <div class="contact-map fade-in">
-            📍 Interactive Map Placeholder
+          <!-- FORM -->
+          <div class="contact-form-card fade-in-right">
+            <h2>Send Us a Message</h2>
+            <form id="contact-form">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="John"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  placeholder="john@example.com"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone</label>
+                <input
+                  type="tel"
+                  class="form-input"
+                  placeholder="+1 (555) 123-4567"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject</label>
+                <select class="form-select">
+                  <option>General Inquiry</option>
+                  <option>Booking Question</option>
+                  <option>Fleet Information</option>
+                  <option>Corporate Rental</option>
+                  <option>Partnership</option>
+                  <option>Feedback</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea
+                  class="form-input"
+                  rows="5"
+                  placeholder="Tell us how we can help..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-lg">
+                Send Message →
+              </button>
+            </form>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- FORM -->
-        <div class="contact-form-card fade-in-right">
-          <h2>Send Us a Message</h2>
-          <form id="contact-form">
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label class="form-label">First Name</label>
-                <input type="text" class="form-input" placeholder="John" required>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-brand">
+              <div class="brand-icon">
+                <img src="logo/LuxDrive-logo.png" />
               </div>
-              <div class="form-group">
-                <label class="form-label">Last Name</label>
-                <input type="text" class="form-input" placeholder="Doe" required>
-              </div>
+            </a>
+            <p>Premium luxury car rentals for the discerning driver.</p>
+            <div class="footer-social">
+              <a href="#">𝕏</a><a href="#">𝕗</a><a href="#">📷</a
+              ><a href="#">in</a>
             </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="john@example.com" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Phone</label>
-              <input type="tel" class="form-input" placeholder="+1 (555) 123-4567">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Subject</label>
-              <select class="form-select">
-                <option>General Inquiry</option>
-                <option>Booking Question</option>
-                <option>Fleet Information</option>
-                <option>Corporate Rental</option>
-                <option>Partnership</option>
-                <option>Feedback</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Message</label>
-              <textarea class="form-input" rows="5" placeholder="Tell us how we can help..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Send Message →</button>
-          </form>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="cars.html">Fleet</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="#">hello@luxedrive.com</a></li>
+              <li><a href="#">+1 (555) 123-4567</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 LuxeDrive. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy</a><a href="#">Terms</a>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="navbar-brand"><div class="brand-icon">L</div>LuxeDrive</a>
-          <p>Premium luxury car rentals for the discerning driver.</p>
-          <div class="footer-social"><a href="#">𝕏</a><a href="#">𝕗</a><a href="#">📷</a><a href="#">in</a></div>
-        </div>
-        <div class="footer-column"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="cars.html">Fleet</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div class="footer-column"><h4>Support</h4><ul><li><a href="#">FAQ</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
-        <div class="footer-column"><h4>Contact</h4><ul><li><a href="#">hello@luxedrive.com</a></li><li><a href="#">+1 (555) 123-4567</a></li></ul></div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 LuxeDrive. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
-  <script src="js/auth.js"></script>
-</body>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
 </html>

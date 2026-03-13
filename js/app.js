@@ -5,7 +5,9 @@ let allCars = [];
 async function fetchCars() {
   try {
     // Fetch first 50 cars from the paginated endpoint for locations + stats
-    const response = await fetch(`${API_BASE}/paginated?pageIndex=1&pageSize=50`);
+    const response = await fetch(
+      `${API_BASE}/paginated?pageIndex=1&pageSize=50`,
+    );
     const json = await response.json();
     const cars = json.data;
 
@@ -74,7 +76,6 @@ function populateLocations() {
   });
 }
 
-
 document.getElementById("search-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -87,28 +88,24 @@ document.getElementById("search-form").addEventListener("submit", function (e) {
   renderFeaturedCars(filteredCars.slice(0, 6));
 });
 
-
 // HERO STATS LOGIC
 
-function startHeroStats(totalItems){
-
+function startHeroStats(totalItems) {
   // --- Luxury Cars (from API total) ---
   const carCounter = document.getElementById("car-count");
-  if(carCounter){
+  if (carCounter) {
     carCounter.textContent = totalItems + "+";
   }
 
   // --- Happy Clients (live increasing number) ---
   const clientCounter = document.getElementById("happy-clients");
 
-  if(clientCounter){
-
+  if (clientCounter) {
     let value = Math.floor(Math.random() * 4000) + 11000;
 
     clientCounter.textContent = value.toLocaleString();
 
-    function increaseClients(){
-
+    function increaseClients() {
       value += Math.floor(Math.random() * 4) + 1;
 
       clientCounter.textContent = value.toLocaleString();
@@ -124,22 +121,34 @@ function startHeroStats(totalItems){
   // --- Satisfaction animation ---
   const satisfaction = document.getElementById("satisfaction");
 
-  if(satisfaction){
-
+  if (satisfaction) {
     let value = 0;
     const target = 98;
 
     const interval = setInterval(() => {
-
       value++;
 
       satisfaction.textContent = value + "%";
 
-      if(value >= target){
+      if (value >= target) {
         clearInterval(interval);
       }
-
     }, 30);
   }
-
 }
+
+const toggle = document.querySelector(".navbar-toggle");
+const sidebar = document.querySelector(".sidebar");
+const overlay = document.querySelector(".overlay");
+
+toggle.addEventListener("click", () => {
+  toggle.classList.toggle("active");
+  sidebar.classList.toggle("open");
+  overlay.classList.toggle("show");
+});
+
+overlay.addEventListener("click", () => {
+  toggle.classList.remove("active");
+  sidebar.classList.remove("open");
+  overlay.classList.remove("show");
+});
