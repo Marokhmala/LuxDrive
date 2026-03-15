@@ -1,182 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete Booking — LuxeDrive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body data-page="booking">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete Booking — LuxeDrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="booking">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">
+            <img src="logo/LuxDrive-logo.png" />
+          </div>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html">Home</a>
+          <a href="cars.html">Cars</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+        </div>
+        <div class="navbar-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
 
-  <!-- NAVBAR -->
-  <nav class="navbar scrolled">
-    <div class="container">
-      <a href="index.html" class="navbar-brand"><div class="brand-icon">L</div>LuxeDrive</a>
-      <div class="navbar-nav">
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Complete Your <span class="text-accent">Booking</span></h1>
+      <div class="breadcrumb">
         <a href="index.html">Home</a>
+        <span class="separator">/</span>
         <a href="cars.html">Cars</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <span class="separator">/</span>
+        <span>Booking</span>
       </div>
-      <div class="navbar-actions">
-        <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
-      </div>
-      <div class="navbar-toggle" aria-label="Menu"><span></span><span></span><span></span></div>
     </div>
-  </nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <h1>Complete Your <span class="text-accent">Booking</span></h1>
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="separator">/</span>
-      <a href="cars.html">Cars</a>
-      <span class="separator">/</span>
-      <span>Booking</span>
-    </div>
-  </div>
-
-  <!-- BOOKING -->
-  <section class="booking-section">
-    <div class="container">
-      <div class="booking-layout">
-        <!-- BOOKING FORM -->
-        <div class="booking-form-section">
-          <!-- Driver Info -->
-          <div class="booking-card">
-            <h2><span class="card-number">1</span> Driver Information</h2>
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" id="booking-name" placeholder="John Doe">
+    <!-- BOOKING -->
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-layout">
+          <!-- BOOKING FORM -->
+          <div class="booking-form-section">
+            <!-- Driver Info -->
+            <div class="booking-card">
+              <h2><span class="card-number">1</span> Driver Information</h2>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="booking-name"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-input"
+                    id="booking-phone"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
               </div>
               <div class="form-group">
-                <label class="form-label">Phone Number</label>
-                <input type="tel" class="form-input" id="booking-phone" placeholder="+1 (555) 123-4567">
+                <label class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  class="form-input"
+                  id="booking-email"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Driver's License Number</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="DL-XXXXXXXX"
+                />
               </div>
             </div>
-            <div class="form-group">
-              <label class="form-label">Email Address</label>
-              <input type="email" class="form-input" id="booking-email" placeholder="john@example.com">
+
+            <!-- Payment -->
+            <div class="booking-card">
+              <h2><span class="card-number">2</span> Payment Method</h2>
+              <div class="form-group">
+                <label class="form-label">Card Number</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  placeholder="1234 5678 9012 3456"
+                  maxlength="19"
+                />
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Expiry Date</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="MM/YY"
+                    maxlength="5"
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">CVV</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="123"
+                    maxlength="3"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Cardholder Name</label>
+                <input type="text" class="form-input" placeholder="John Doe" />
+              </div>
             </div>
-            <div class="form-group">
-              <label class="form-label">Driver's License Number</label>
-              <input type="text" class="form-input" placeholder="DL-XXXXXXXX">
+
+            <!-- Additional Options -->
+            <div class="booking-card">
+              <h2><span class="card-number">3</span> Additional Options</h2>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span> Additional Driver (+$25/day)
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span> GPS Navigation (+$10/day)
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span> Child Seat (+$15/day)
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" />
+                  <span class="checkmark"></span> Premium Insurance (+$30/day)
+                </label>
+              </div>
             </div>
+
+            <button
+              class="btn btn-primary btn-lg btn-block"
+              id="confirm-booking-btn"
+            >
+              Confirm Booking →
+            </button>
           </div>
 
-          <!-- Payment -->
-          <div class="booking-card">
-            <h2><span class="card-number">2</span> Payment Method</h2>
-            <div class="form-group">
-              <label class="form-label">Card Number</label>
-              <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19">
-            </div>
-            <div class="form-grid-2">
-              <div class="form-group">
-                <label class="form-label">Expiry Date</label>
-                <input type="text" class="form-input" placeholder="MM/YY" maxlength="5">
+          <!-- ORDER SUMMARY -->
+          <div class="order-summary">
+            <div class="summary-card">
+              <h3>Booking Summary</h3>
+              <div class="summary-car">
+                <div class="summary-car-img">
+                  <div id="booking-car-emoji" style="font-size: 2.5rem">🏎️</div>
+                </div>
+                <div class="summary-car-info">
+                  <h4 id="booking-car-name">Mercedes-AMG GT</h4>
+                  <p id="booking-car-specs">2024 • Automatic • Gasoline</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label class="form-label">CVV</label>
-                <input type="text" class="form-input" placeholder="123" maxlength="3">
+              <div class="summary-details">
+                <div class="summary-line">
+                  <span>Pickup</span>
+                  <span id="booking-pickup">—</span>
+                </div>
+                <div class="summary-line">
+                  <span>Return</span>
+                  <span id="booking-return">—</span>
+                </div>
+                <div class="summary-line">
+                  <span>Duration</span>
+                  <span id="booking-days">—</span>
+                </div>
+                <div class="summary-line">
+                  <span>Daily Rate</span>
+                  <span id="booking-daily-rate">—</span>
+                </div>
+                <div class="summary-line">
+                  <span>Subtotal</span>
+                  <span id="booking-subtotal">—</span>
+                </div>
+                <div class="summary-line">
+                  <span>Tax & Fees</span>
+                  <span id="booking-tax">—</span>
+                </div>
+                <div class="summary-line total">
+                  <span>Total</span>
+                  <span id="booking-total">$0</span>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Cardholder Name</label>
-              <input type="text" class="form-input" placeholder="John Doe">
             </div>
           </div>
-
-          <!-- Additional Options -->
-          <div class="booking-card">
-            <h2><span class="card-number">3</span> Additional Options</h2>
-            <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input type="checkbox">
-                <span class="checkmark"></span> Additional Driver (+$25/day)
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox">
-                <span class="checkmark"></span> GPS Navigation (+$10/day)
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox">
-                <span class="checkmark"></span> Child Seat (+$15/day)
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox">
-                <span class="checkmark"></span> Premium Insurance (+$30/day)
-              </label>
-            </div>
-          </div>
-
-          <button class="btn btn-primary btn-lg btn-block" id="confirm-booking-btn">Confirm Booking →</button>
         </div>
+      </div>
+    </section>
 
-        <!-- ORDER SUMMARY -->
-        <div class="order-summary">
-          <div class="summary-card">
-            <h3>Booking Summary</h3>
-            <div class="summary-car">
-              <div class="summary-car-img">
-                <div id="booking-car-emoji" style="font-size:2.5rem">🏎️</div>
-              </div>
-              <div class="summary-car-info">
-                <h4 id="booking-car-name">Mercedes-AMG GT</h4>
-                <p id="booking-car-specs">2024 • Automatic • Gasoline</p>
-              </div>
-            </div>
-            <div class="summary-details">
-              <div class="summary-line">
-                <span>Pickup</span>
-                <span id="booking-pickup">—</span>
-              </div>
-              <div class="summary-line">
-                <span>Return</span>
-                <span id="booking-return">—</span>
-              </div>
-              <div class="summary-line">
-                <span>Duration</span>
-                <span id="booking-days">—</span>
-              </div>
-              <div class="summary-line">
-                <span>Daily Rate</span>
-                <span id="booking-daily-rate">—</span>
-              </div>
-              <div class="summary-line">
-                <span>Subtotal</span>
-                <span id="booking-subtotal">—</span>
-              </div>
-              <div class="summary-line">
-                <span>Tax & Fees</span>
-                <span id="booking-tax">—</span>
-              </div>
-              <div class="summary-line total">
-                <span>Total</span>
-                <span id="booking-total">$0</span>
-              </div>
-            </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>© 2026 LuxeDrive. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy</a><a href="#">Terms</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>© 2026 LuxeDrive. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
-  <script src="js/auth.js"></script>
-</body>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
 </html>

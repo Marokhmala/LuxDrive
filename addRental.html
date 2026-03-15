@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Rental — LuxeDrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="add-rental">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">
+            <img src="logo/LuxDrive-logo.png" />
+          </div>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html">Home</a>
+          <a href="cars.html">Cars</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+        </div>
+        <div class="navbar-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Add New <span class="text-accent">Rental</span></h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <a href="dashboard.html">Dashboard</a>
+        <span class="separator">/</span>
+        <span>Add Rental</span>
+      </div>
+    </div>
+
+    <!-- ADD RENTAL FORM -->
+    <section class="section">
+      <div class="container">
+        <div class="max-w-4xl mx-auto">
+          <div class="booking-card">
+            <h2 style="margin-bottom: 24px; text-align: center">
+              Add Your Car for Rent
+            </h2>
+
+            <form id="add-rental-form" enctype="multipart/form-data">
+              <!-- Image Upload -->
+              <div class="form-group">
+                <label class="form-label">Car Images (Up to 3)</label>
+                <div class="image-upload-grid">
+                  <div
+                    class="image-upload-slot image-upload-area"
+                    onclick="document.getElementById('image1').click()"
+                  >
+                    <input
+                      type="file"
+                      id="image1"
+                      name="image1"
+                      accept="image/*"
+                      style="display: none"
+                    />
+                    <div class="upload-placeholder">
+                      <span>+</span>
+                      <p>Add Image 1</p>
+                    </div>
+                    <img
+                      id="preview1"
+                      style="
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 8px;
+                      "
+                    />
+                  </div>
+                  <div
+                    class="image-upload-slot"
+                    onclick="document.getElementById('image2').click()"
+                  >
+                    <input
+                      type="file"
+                      id="image2"
+                      name="image2"
+                      accept="image/*"
+                      style="display: none"
+                    />
+                    <div class="upload-placeholder">
+                      <span>+</span>
+                      <p>Add Image 2</p>
+                    </div>
+                    <img
+                      id="preview2"
+                      style="
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 8px;
+                      "
+                    />
+                  </div>
+                  <div
+                    class="image-upload-slot"
+                    onclick="document.getElementById('image3').click()"
+                  >
+                    <input
+                      type="file"
+                      id="image3"
+                      name="image3"
+                      accept="image/*"
+                      style="display: none"
+                    />
+                    <div class="upload-placeholder">
+                      <span>+</span>
+                      <p>Add Image 3</p>
+                    </div>
+                    <img
+                      id="preview3"
+                      style="
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 8px;
+                      "
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Car Details -->
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Brand</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="car-brand"
+                    placeholder="e.g. Mercedes-Benz"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Model</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="car-model"
+                    placeholder="e.g. AMG GT"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Year</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    id="car-year"
+                    placeholder="2024"
+                    min="2000"
+                    max="2026"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Price per Day ($)</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    id="car-price"
+                    placeholder="450"
+                    min="1"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Transmission</label>
+                  <select class="form-input" id="car-transmission" required>
+                    <option value="">Select Transmission</option>
+                    <option value="ავტომატიკა">Automatic</option>
+                    <option value="მექანიკა">Manual</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Fuel Capacity (L)</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    id="car-fuel-capacity"
+                    placeholder="60"
+                    min="1"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Seats</label>
+                  <input
+                    type="number"
+                    class="form-input"
+                    id="car-seats"
+                    placeholder="4"
+                    min="1"
+                    max="10"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Location</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    id="car-location"
+                    placeholder="New York, NY"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea
+                  class="form-input"
+                  id="car-description"
+                  rows="4"
+                  placeholder="Describe your car, its features, condition, etc."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-item" style="margin-bottom: 24px">
+                  <input type="checkbox" id="terms-agreement" required />
+                  <span class="checkmark"></span>
+                  I agree to the rental terms and confirm that all information
+                  provided is accurate
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg btn-block"
+                id="submit-rental-btn"
+              >
+                Add Rental Car
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-brand">
+              <div class="brand-icon">
+                <img src="logo/LuxDrive-logo.png" />
+              </div>
+            </a>
+            <p>
+              Premium luxury car rentals for the discerning driver. Experience
+              the finest automobiles with world-class service.
+            </p>
+            <div class="footer-social">
+              <a href="#">𝕏</a>
+              <a href="#">𝕗</a>
+              <a href="#">📷</a>
+              <a href="#">in</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="cars.html">Our Fleet</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Rental Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="#">hello@luxedrive.com</a></li>
+              <li><a href="#">+1 (555) 123-4567</a></li>
+              <li><a href="#">New York, NY 10001</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 LuxeDrive. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy</a><a href="#">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+      // Check if user is logged in on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        if (!Session.isLoggedIn()) {
+          alert("Please log in to add a rental car.");
+          window.location.href = "login.html";
+          return;
+        }
+
+        // Check if we're in edit mode
+        const urlParams = new URLSearchParams(window.location.search);
+        const isEditMode = urlParams.get("edit") === "true";
+
+        if (isEditMode) {
+          loadCarForEditing();
+        }
+      });
+      // Image preview functionality
+      function setupImagePreview(inputId, previewId) {
+        document
+          .getElementById(inputId)
+          .addEventListener("change", function (e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById(previewId);
+            const placeholder = preview.previousElementSibling;
+
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.style.display = "block";
+                placeholder.style.display = "none";
+              };
+              reader.readAsDataURL(file);
+            } else {
+              preview.style.display = "none";
+              placeholder.style.display = "flex";
+            }
+          });
+      }
+
+      // Setup image previews
+      setupImagePreview("image1", "preview1");
+      setupImagePreview("image2", "preview2");
+      setupImagePreview("image3", "preview3");
+      // Function to load car data for editing
+      function loadCarForEditing() {
+        const editingIndex = localStorage.getItem("editingCarIndex");
+        if (editingIndex === null) {
+          alert("No car selected for editing.");
+          window.location.href = "cars.html";
+          return;
+        }
+
+        const userCars = JSON.parse(localStorage.getItem("userCars") || "[]");
+        const car = userCars[editingIndex];
+
+        if (!car) {
+          alert("Car not found.");
+          window.location.href = "cars.html";
+          return;
+        }
+
+        // Populate form fields
+        document.getElementById("car-brand").value = car.brand || "";
+        document.getElementById("car-model").value = car.model || "";
+        document.getElementById("car-year").value = car.year || "";
+        document.getElementById("car-price").value = car.price || "";
+        document.getElementById("car-transmission").value =
+          car.transmission || "";
+        document.getElementById("car-fuel-capacity").value =
+          car.fuelCapacity || "";
+        document.getElementById("car-seats").value = car.capacity || "";
+        document.getElementById("car-location").value = car.city || "";
+        document.getElementById("car-description").value =
+          car.description || "";
+
+        // Load existing images
+        if (car.images && car.images.length > 0) {
+          car.images.forEach((imageData, index) => {
+            if (index < 3) {
+              const previewId = `preview${index + 1}`;
+              const preview = document.getElementById(previewId);
+              const placeholder = preview.previousElementSibling;
+
+              preview.src = imageData;
+              preview.style.display = "block";
+              placeholder.style.display = "none";
+            }
+          });
+        }
+
+        // Update page title and button
+        document.querySelector("h1").textContent = "Edit Rental Car";
+        document.getElementById("submit-rental-btn").textContent = "Update Car";
+      }
+      // Form submission
+      document
+        .getElementById("add-rental-form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          console.log("Form submitted");
+
+          // Check if user is logged in
+          if (!Session.isLoggedIn()) {
+            alert("Please log in to add a rental car.");
+            window.location.href = "login.html";
+            return;
+          }
+
+          const urlParams = new URLSearchParams(window.location.search);
+          const isEditMode = urlParams.get("edit") === "true";
+          const editingIndex = isEditMode
+            ? localStorage.getItem("editingCarIndex")
+            : null;
+
+          const submitBtn = document.getElementById("submit-rental-btn");
+          submitBtn.disabled = true;
+          submitBtn.textContent = isEditMode
+            ? "Updating Car..."
+            : "Adding Car...";
+
+          try {
+            // Validate required fields
+            const requiredFields = [
+              "car-brand",
+              "car-model",
+              "car-year",
+              "car-price",
+              "car-transmission",
+              "car-fuel-capacity",
+              "car-seats",
+              "car-location",
+              "car-description",
+            ];
+
+            let missingFields = [];
+            for (const fieldId of requiredFields) {
+              const field = document.getElementById(fieldId);
+              const formGroup = field.closest(".form-group");
+
+              if (!field.value.trim()) {
+                missingFields.push(fieldId);
+                field.classList.add("error");
+                if (formGroup) formGroup.classList.add("error");
+              } else {
+                field.classList.remove("error");
+                if (formGroup) formGroup.classList.remove("error");
+              }
+            }
+
+            if (missingFields.length > 0) {
+              throw new Error(
+                `Please fill in all required fields. ${missingFields.length} field(s) are missing.`,
+              );
+            }
+
+            // Check terms agreement
+            if (!document.getElementById("terms-agreement").checked) {
+              throw new Error("Please agree to the terms and conditions");
+            }
+
+            // Validate image
+            const imageInput = document.getElementById("image1");
+            const imageUploadArea =
+              document.querySelector(".image-upload-area");
+
+            if (!imageInput.files || imageInput.files.length === 0) {
+              if (imageUploadArea) imageUploadArea.classList.add("error");
+              throw new Error("Please select at least one image for the car.");
+            }
+
+            // Clear error states if validation passes
+            if (imageUploadArea) imageUploadArea.classList.remove("error");
+
+            // Collect form data
+            const carData = {
+              brand: document.getElementById("car-brand").value.trim(),
+              model: document.getElementById("car-model").value.trim(),
+              year: parseInt(document.getElementById("car-year").value),
+              price: parseInt(document.getElementById("car-price").value),
+              transmission: document.getElementById("car-transmission").value,
+              fuelCapacity: parseInt(
+                document.getElementById("car-fuel-capacity").value,
+              ),
+              capacity: parseInt(document.getElementById("car-seats").value),
+              city: document.getElementById("car-location").value.trim(),
+              description: document
+                .getElementById("car-description")
+                .value.trim(),
+              userAdded: true,
+              addedBy: Session.getUser()?.id || "unknown",
+              addedAt: new Date().toISOString(),
+            };
+
+            console.log("Car data collected:", carData);
+
+            // Handle images
+            const images = [];
+            for (let i = 1; i <= 3; i++) {
+              const fileInput = document.getElementById(`image${i}`);
+              if (fileInput.files[0]) {
+                console.log(`Processing image ${i}`);
+                try {
+                  // Convert image to base64 for storage
+                  const base64 = await fileToBase64(fileInput.files[0]);
+                  images.push(base64);
+                  console.log(`Image ${i} converted successfully`);
+                } catch (imageError) {
+                  console.error(`Error processing image ${i}:`, imageError);
+                  throw new Error(`Failed to process image ${i}`);
+                }
+              }
+            }
+
+            carData.images = images;
+            console.log(`Processed ${images.length} images`);
+
+            // Store in localStorage (in production, this would be an API call)
+            const userCars = JSON.parse(
+              localStorage.getItem("userCars") || "[]",
+            );
+
+            if (isEditMode && editingIndex !== null) {
+              // Update existing car
+              const existingCar = userCars[editingIndex];
+              carData.addedAt = existingCar.addedAt; // Preserve original timestamp
+              carData.id = existingCar.id; // Preserve original ID
+              userCars[editingIndex] = carData;
+              localStorage.removeItem("editingCarIndex"); // Clean up
+            } else {
+              // Add new car
+              userCars.unshift(carData); // Add to beginning of array
+            }
+
+            localStorage.setItem("userCars", JSON.stringify(userCars));
+
+            console.log(
+              isEditMode ? "Car updated" : "Car saved to localStorage",
+            );
+
+            // Show success message
+            if (isEditMode) {
+              alert("Car updated successfully!");
+            } else {
+              const addAnother = confirm(
+                "Car added successfully! It will appear at the top of the cars list.\n\nWould you like to add another car?",
+              );
+              if (addAnother) {
+                // Reset form for adding another car
+                document.getElementById("add-rental-form").reset();
+                // Clear image previews
+                for (let i = 1; i <= 3; i++) {
+                  const preview = document.getElementById(`preview${i}`);
+                  const placeholder = preview.previousElementSibling;
+                  preview.style.display = "none";
+                  placeholder.style.display = "flex";
+                }
+                // Reset button and scroll to top
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Add Rental Car";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                return; // Don't redirect
+              }
+            }
+
+            // Redirect to cars page
+            window.location.href = "cars.html";
+          } catch (error) {
+            console.error("Error adding car:", error);
+            alert(`Error adding car: ${error.message}`);
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = isEditMode
+              ? "Update Car"
+              : "Add Rental Car";
+          }
+        });
+
+      // Helper function to convert file to base64
+      function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+          if (!file) {
+            reject(new Error("No file provided"));
+            return;
+          }
+
+          // Check file size (limit to 5MB)
+          if (file.size > 5 * 1024 * 1024) {
+            reject(
+              new Error(
+                "File size too large. Please choose a file smaller than 5MB.",
+              ),
+            );
+            return;
+          }
+
+          // Check file type
+          if (!file.type.startsWith("image/")) {
+            reject(new Error("Please select a valid image file."));
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = (error) =>
+            reject(new Error("Failed to read file: " + error));
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -819,51 +819,51 @@ textarea.form-input {
 
 /* HOW IT WORKS */
 
-.how-steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
-  margin-top:50px;
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
 }
 
-.how-step{
-  display:flex;
-  gap:18px;
-  align-items:flex-start;
-  padding:25px;
-  border-radius:12px;
-  background:#1f1f1f;
-  transition:all 0.3s ease;
+.how-step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 25px;
+  border-radius: 12px;
+  background: #1f1f1f;
+  transition: all 0.3s ease;
 }
 
-.how-step:hover{
-  transform:translateY(-5px);
-  background:#262626;
+.how-step:hover {
+  transform: translateY(-5px);
+  background: #262626;
 }
 
-.how-number{
-  min-width:42px;
-  height:42px;
-  border-radius:50%;
-  background:#e6b400;
-  color:black;
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:18px;
+.how-number {
+  min-width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #e6b400;
+  color: black;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
 }
 
-.how-content h3{
-  margin:0 0 6px 0;
-  font-size:18px;
+.how-content h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
 }
 
-.how-content p{
-  margin:0;
-  font-size:14px;
-  color:#bcbcbc;
-  line-height:1.6;
+.how-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #bcbcbc;
+  line-height: 1.6;
 }
 
 /* ============================================
@@ -871,40 +871,40 @@ textarea.form-input {
    ============================================ */
 /* WHY CHOOSE LUXDRIVE */
 
-.choose-grid{
-  margin-top:50px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
+.choose-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
-.choose-card{
-  background:#1f1f1f;
-  padding:35px 30px;
-  border-radius:12px;
-  text-align:center;
-  transition:all 0.3s ease;
+.choose-card {
+  background: #1f1f1f;
+  padding: 35px 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.choose-card:hover{
-  transform:translateY(-6px);
-  background:#262626;
+.choose-card:hover {
+  transform: translateY(-6px);
+  background: #262626;
 }
 
-.choose-icon{
-  font-size:34px;
-  margin-bottom:15px;
+.choose-icon {
+  font-size: 34px;
+  margin-bottom: 15px;
 }
 
-.choose-card h3{
-  font-size:18px;
-  margin-bottom:10px;
+.choose-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-.choose-card p{
-  font-size:14px;
-  line-height:1.6;
-  color:#bdbdbd;
+.choose-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #bdbdbd;
 }
 
 /* ============================================
@@ -912,41 +912,41 @@ textarea.form-input {
    ============================================ */
 /* TESTIMONIALS */
 
-.reviews-grid{
-  margin-top:50px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+.reviews-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
 }
 
-.review-card{
-  background:#1f1f1f;
-  padding:30px;
-  border-radius:12px;
-  transition:all 0.3s ease;
+.review-card {
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-.review-card:hover{
-  transform:translateY(-6px);
-  background:#262626;
+.review-card:hover {
+  transform: translateY(-6px);
+  background: #262626;
 }
 
-.review-stars{
-  font-size:18px;
-  margin-bottom:15px;
+.review-stars {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
-.review-text{
-  font-size:15px;
-  line-height:1.7;
-  color:#bdbdbd;
-  margin-bottom:18px;
+.review-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #bdbdbd;
+  margin-bottom: 18px;
 }
 
-.review-author{
-  font-weight:600;
-  font-size:14px;
-  color:#ffffff;
+.review-author {
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
 }
 
 /* ============================================
@@ -954,40 +954,40 @@ textarea.form-input {
    ============================================ */
 /* CTA SECTION */
 
-.cta-section{
-  padding:100px 0;
-  background:linear-gradient(135deg,#1a1a1a,#0f0f0f);
-  text-align:center;
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+  text-align: center;
 }
 
-.cta-content{
-  max-width:700px;
-  margin:auto;
+.cta-content {
+  max-width: 700px;
+  margin: auto;
 }
 
-.cta-content h2{
-  font-size:40px;
-  margin-bottom:20px;
+.cta-content h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
-.cta-content p{
-  font-size:18px;
-  color:#bdbdbd;
-  margin-bottom:35px;
-  line-height:1.6;
+.cta-content p {
+  font-size: 18px;
+  color: #bdbdbd;
+  margin-bottom: 35px;
+  line-height: 1.6;
 }
 
 /* button improvement */
 
-.cta-section .btn{
-  padding:14px 32px;
-  font-size:16px;
-  border-radius:8px;
-  transition:all 0.3s ease;
+.cta-section .btn {
+  padding: 14px 32px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-.cta-section .btn:hover{
-  transform:translateY(-3px);
+.cta-section .btn:hover {
+  transform: translateY(-3px);
 }
 
 /* ============================================
@@ -1954,6 +1954,145 @@ textarea.form-input {
 .stat-card p {
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+.stat-card {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+}
+
+.stat-card:hover .stat-card-icon {
+  transform: scale(1.1);
+  background: var(--accent);
+  color: white;
+}
+
+.stat-card:hover h3 {
+  color: var(--accent);
+}
+
+.stat-card-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--accent);
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-card-hover {
+  transform: translateY(0);
+}
+
+/* ============================================
+   IMAGE UPLOAD
+   ============================================ */
+.image-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.image-upload-slot {
+  aspect-ratio: 16/9;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--bg);
+}
+
+.image-upload-slot:hover {
+  border-color: var(--accent);
+  background: rgba(245, 166, 35, 0.05);
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.upload-placeholder span {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.upload-placeholder p {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Form validation */
+.form-input.error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+}
+
+.form-group.error .form-label::after {
+  content: " *";
+  color: #e74c3c;
+}
+
+.image-upload-area.error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+}
+
+/* Car Management Menu */
+.car-management-menu {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  min-width: 120px;
+}
+
+.car-management-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.car-management-menu button:hover {
+  background: var(--bg-hover);
+}
+
+.car-management-menu button.delete-btn {
+  color: #e74c3c;
+}
+
+.car-management-menu button.delete-btn:hover {
+  background: rgba(231, 76, 60, 0.1);
 }
 
 /* Booking List */
@@ -2949,10 +3088,6 @@ textarea.form-input {
   transition-delay: 0.6s;
 }
 
-
-
-
-
 /* I have no idea what the f is that above this */
 
 /* CAR GRID */
@@ -2968,7 +3103,7 @@ textarea.form-input {
   background: #2e2e2e;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -2976,7 +3111,7 @@ textarea.form-input {
 
 .car-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 /* IMAGE */
@@ -2985,12 +3120,27 @@ textarea.form-input {
   height: 180px;
   overflow: hidden;
   background: #232323;
+  position: relative;
 }
 
 .car-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.user-car-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--accent);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* CONTENT */
@@ -3027,8 +3177,6 @@ textarea.form-input {
   width: 100%;
   text-align: center;
 }
-
-
 
 /* CARS */
 
@@ -3200,8 +3348,61 @@ textarea.form-input {
   color: var(--danger);
 }
 
+/* ============================================
+   MESSAGES BUTTON
+   ============================================ */
+.messages-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  transition: var(--transition);
+  cursor: pointer;
+}
 
+.messages-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-light);
+  color: var(--accent);
+}
 
+.messages-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.messages-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background: #e74c3c;
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* Sidebar */
 .sidebar {
@@ -3233,7 +3434,7 @@ textarea.form-input {
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
