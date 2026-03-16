@@ -812,6 +812,195 @@ textarea.form-input {
 }
 
 /* ============================================
+   BEST CARS - ELITE COLLECTION
+   ============================================ */
+.best-cars {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.best-cars::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(245, 166, 35, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(245, 166, 35, 0.08) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.best-cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.best-car-card {
+  background: linear-gradient(145deg, #1a1a1a, #111111);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.best-car-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #ff6b35, var(--accent));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.best-car-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(245, 166, 35, 0.25);
+}
+
+.best-car-card:hover::before {
+  opacity: 1;
+}
+
+.best-car-image {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a1a, #111);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.best-car-image img {
+  width: 90%;
+  height: auto;
+  object-fit: contain;
+  transition: var(--transition);
+  filter: brightness(0.9);
+}
+
+.best-car-card:hover .best-car-image img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.best-car-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 166, 35, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.best-car-card:hover .best-car-overlay {
+  opacity: 1;
+}
+
+.best-car-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, var(--accent), #ff6b35);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+}
+
+.best-car-content {
+  padding: 32px;
+  background: linear-gradient(145deg, #111111, #0f0f0f);
+}
+
+.best-car-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--text), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.best-car-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.best-car-features {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.best-car-features span {
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+.best-car-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.best-car-price .price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.best-car-price .per-day {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* ============================================
    HOW IT WORKS
    ============================================ */
 .how-it-works {
@@ -2361,7 +2550,7 @@ textarea.form-input {
    CONTACT PAGE
    ============================================ */
 
-   /* GRID */
+/* GRID */
 
 .contact-grid {
   display: grid;
@@ -2565,7 +2754,6 @@ textarea.form-input {
   background: var(--accent-hover);
   transform: translateY(-1px);
 }
-
 
 .contact-map {
   margin-top: 24px;
