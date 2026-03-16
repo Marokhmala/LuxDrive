@@ -2566,6 +2566,21 @@ textarea.form-input {
   transform: translateY(-1px);
 }
 
+
+.contact-map {
+  margin-top: 24px;
+  height: 220px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* ============================= */
 /* RESPONSIVE */
 /* ============================= */
