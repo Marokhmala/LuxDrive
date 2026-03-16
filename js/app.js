@@ -152,3 +152,91 @@ overlay.addEventListener("click", () => {
   sidebar.classList.remove("open");
   overlay.classList.remove("show");
 });
+
+// Toast notification system
+const App = {
+  showToast: function (type, title, message) {
+    // Create toast container if it doesn't exist
+    let toastContainer = document.querySelector(".toast-container");
+    if (!toastContainer) {
+      toastContainer = document.createElement("div");
+      toastContainer.className = "toast-container";
+      toastContainer.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      `;
+      document.body.appendChild(toastContainer);
+    }
+
+    // Create toast element
+    const toast = document.createElement("div");
+    toast.className = `toast toast-${type}`;
+    toast.style.cssText = `
+      background: ${type === "success" ? "#10b981" : type === "error" ? "#ef4444" : "#f59e0b"};
+      color: white;
+      padding: 16px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 300px;
+      max-width: 400px;
+      animation: slideIn 0.3s ease-out;
+      font-family: 'Inter', sans-serif;
+    `;
+
+    toast.innerHTML = `
+      <div style="font-size: 1.2rem; margin-top: 2px;">
+        ${type === "success" ? "✓" : type === "error" ? "✕" : "⚠"}
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 600; margin-bottom: 4px;">${title}</div>
+        <div style="font-size: 0.9rem; opacity: 0.9;">${message}</div>
+      </div>
+      <button onclick="this.parentElement.remove()" style="
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.2rem;
+        opacity: 0.7;
+        padding: 0;
+        margin-left: 8px;
+      ">×</button>
+    `;
+
+    // Add slide-in animation
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    toastContainer.appendChild(toast);
+
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+      if (toast.parentElement) {
+        toast.style.animation = "slideOut 0.3s ease-in forwards";
+        setTimeout(() => toast.remove(), 300);
+      }
+    }, 5000);
+
+    // Add slide-out animation
+    style.textContent += `
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+    `;
+  },
+};

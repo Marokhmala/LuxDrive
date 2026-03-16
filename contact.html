@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us — LuxeDrive</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="css/styles.css" />
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
   </head>
+
   <body data-page="contact">
     <!-- NAVBAR -->
     <nav class="navbar">
@@ -20,16 +28,19 @@
             <img src="logo/LuxDrive-logo.png" />
           </div>
         </a>
+
         <div class="navbar-nav">
           <a href="index.html">Home</a>
           <a href="cars.html">Cars</a>
           <a href="about.html">About</a>
           <a href="contact.html" class="active">Contact</a>
         </div>
+
         <div class="navbar-actions">
           <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
           <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
         </div>
+
         <div class="navbar-toggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </div>
@@ -39,6 +50,7 @@
     <!-- PAGE HEADER -->
     <div class="page-header">
       <h1>Get In <span class="text-accent">Touch</span></h1>
+
       <div class="breadcrumb">
         <a href="index.html">Home</a>
         <span class="separator">/</span>
@@ -52,50 +64,42 @@
         <div class="contact-grid">
           <!-- INFO -->
           <div>
-            <div
-              class="section-label"
-              style="justify-content: flex-start; margin-bottom: 16px"
-            >
-              Contact Information
-            </div>
-            <h2
-              style="
-                font-family: var(--font-display);
-                font-size: 1.8rem;
-                margin-bottom: 16px;
-              "
-            >
-              We'd Love to Hear From You
-            </h2>
-            <p class="text-muted" style="margin-bottom: 32px; line-height: 1.7">
+            <div class="section-label">Contact Information</div>
+
+            <h2 class="contact-title">We'd Love to Hear From You</h2>
+
+            <p class="text-muted contact-description">
               Have questions about our services? Want to make a special
               arrangement? Our team is here to help make your luxury car
               experience perfect.
             </p>
 
             <div class="contact-info-cards">
-              <div class="contact-info-card fade-in">
+              <div class="contact-info-card">
                 <div class="contact-info-icon">📧</div>
                 <div>
                   <h4>Email</h4>
-                  <p>hello@luxedrive.com</p>
+                  <p>car.rental@luxdrive.com</p>
                 </div>
               </div>
-              <div class="contact-info-card fade-in">
+
+              <div class="contact-info-card">
                 <div class="contact-info-icon">📞</div>
                 <div>
                   <h4>Phone</h4>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+995 32 2 123 456</p>
                 </div>
               </div>
-              <div class="contact-info-card fade-in">
+
+              <div class="contact-info-card">
                 <div class="contact-info-icon">📍</div>
                 <div>
                   <h4>Location</h4>
-                  <p>350 Fifth Avenue, New York, NY 10001</p>
+                  <p>Tbilisi Central</p>
                 </div>
               </div>
-              <div class="contact-info-card fade-in">
+
+              <div class="contact-info-card">
                 <div class="contact-info-icon">🕐</div>
                 <div>
                   <h4>Business Hours</h4>
@@ -104,55 +108,64 @@
               </div>
             </div>
 
-            <div class="contact-map fade-in">
-              📍 Interactive Map Placeholder
-            </div>
+            <div class="contact-map">📍 Interactive Map Placeholder</div>
           </div>
 
           <!-- FORM -->
-          <div class="contact-form-card fade-in-right">
-            <h2>Send Us a Message</h2>
+          <div class="contact-form-card">
+            <h2 class="contact-form-title">Send Us a Message</h2>
+
+            <p class="text-muted contact-form-desc">
+              Fill out the form below and we'll get back to you within 24 hours.
+            </p>
+
             <form id="contact-form">
-              <div class="form-grid-2">
-                <div class="form-group">
-                  <label class="form-label">First Name</label>
-                  <input
-                    type="text"
-                    class="form-input"
-                    placeholder="John"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Last Name</label>
-                  <input
-                    type="text"
-                    class="form-input"
-                    placeholder="Doe"
-                    required
-                  />
-                </div>
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="first-name"
+                  placeholder="John"
+                  required
+                />
               </div>
+
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="last-name"
+                  placeholder="Doe"
+                  required
+                />
+              </div>
+
               <div class="form-group">
                 <label class="form-label">Email</label>
                 <input
                   type="email"
                   class="form-input"
+                  id="contact-email"
                   placeholder="john@example.com"
                   required
                 />
               </div>
+
               <div class="form-group">
                 <label class="form-label">Phone</label>
                 <input
                   type="tel"
                   class="form-input"
+                  id="contact-phone"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
+
               <div class="form-group">
                 <label class="form-label">Subject</label>
-                <select class="form-select">
+                <select class="form-select" id="contact-subject">
                   <option>General Inquiry</option>
                   <option>Booking Question</option>
                   <option>Fleet Information</option>
@@ -161,15 +174,18 @@
                   <option>Feedback</option>
                 </select>
               </div>
+
               <div class="form-group">
                 <label class="form-label">Message</label>
                 <textarea
                   class="form-input"
+                  id="contact-message"
                   rows="5"
                   placeholder="Tell us how we can help..."
                   required
                 ></textarea>
               </div>
+
               <button type="submit" class="btn btn-primary btn-block btn-lg">
                 Send Message →
               </button>
@@ -189,12 +205,17 @@
                 <img src="logo/LuxDrive-logo.png" />
               </div>
             </a>
+
             <p>Premium luxury car rentals for the discerning driver.</p>
+
             <div class="footer-social">
-              <a href="#">𝕏</a><a href="#">𝕗</a><a href="#">📷</a
-              ><a href="#">in</a>
+              <a href="#">𝕏</a>
+              <a href="#">𝕗</a>
+              <a href="#">📷</a>
+              <a href="#">in</a>
             </div>
           </div>
+
           <div class="footer-column">
             <h4>Company</h4>
             <ul>
@@ -203,6 +224,7 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
+
           <div class="footer-column">
             <h4>Support</h4>
             <ul>
@@ -211,6 +233,7 @@
               <li><a href="#">Terms</a></li>
             </ul>
           </div>
+
           <div class="footer-column">
             <h4>Contact</h4>
             <ul>
@@ -219,10 +242,13 @@
             </ul>
           </div>
         </div>
+
         <div class="footer-bottom">
           <p>© 2026 LuxeDrive. All rights reserved.</p>
+
           <div class="footer-bottom-links">
-            <a href="#">Privacy</a><a href="#">Terms</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
           </div>
         </div>
       </div>
@@ -230,5 +256,60 @@
 
     <script src="js/app.js"></script>
     <script src="js/auth.js"></script>
+
+    <script>
+      // EmailJS Configuration
+      // Replace these with your actual EmailJS credentials from EMAIL_SETUP.md
+      const EMAILJS_PUBLIC_KEY = "wNN9joUv_bPxlHmBb"; // Get from EmailJS Account > General
+      const EMAILJS_SERVICE_ID = "service_smzoasl"; // Get from Email Services
+      const EMAILJS_TEMPLATE_ID = "template_ea5mm1r"; // Get from Email Templates
+
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Handle contact form submission
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = {
+            firstName: document.getElementById("first-name").value,
+            lastName: document.getElementById("last-name").value,
+            email: document.getElementById("contact-email").value,
+            phone: document.getElementById("contact-phone").value,
+            subject: document.getElementById("contact-subject").value,
+            message: document.getElementById("contact-message").value,
+            current_date: new Date().toLocaleString(),
+          };
+
+          // Disable submit button and show loading
+          const submitBtn = this.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+
+          // Send email using EmailJS
+          emailjs
+            .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+            .then(function (response) {
+              alert("Message sent successfully!");
+
+              document.getElementById("contact-form").reset();
+
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            })
+            .catch(function (error) {
+              console.error("EmailJS error:", error);
+
+              alert("Failed to send message. Please try again.");
+
+              submitBtn.disabled = false;
+              submitBtn.textContent = originalText;
+            });
+        });
+    </script>
   </body>
 </html>
