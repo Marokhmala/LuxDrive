@@ -101,7 +101,7 @@ function populatePage(car) {
     const label = colorEl.closest(".spec-item")?.querySelector("label");
     if (label) label.textContent = "City";
     const icon = colorEl.closest(".spec-item")?.querySelector(".spec-item-icon");
-    if (icon) icon.textContent = "📍";
+    if (icon) icon.innerHTML = '<i data-lucide="map-pin"></i>';
   }
 
   /* ---------- Badge ---------- */
@@ -136,9 +136,11 @@ function populatePage(car) {
     ];
     featuresList.innerHTML = features
       .map(f => `<li style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);color:var(--text-secondary);font-size:0.9rem;">
-                   <span style="color:var(--accent);font-size:1rem;">✓</span> ${f}
+                   <span style="color:var(--accent);font-size:1rem;"><i data-lucide="check" style="width:16px;height:16px;"></i></span> ${f}
                  </li>`)
       .join("");
+      
+    if (window.lucide) lucide.createIcons();
   }
 
   /* ---------- Date picker & total ---------- */
@@ -185,9 +187,10 @@ function showError(msg) {
   if (grid) {
     grid.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-secondary);">
-        <div style="font-size:3rem;margin-bottom:12px;">⚠️</div>
+        <div style="font-size:3rem;margin-bottom:12px;"><i data-lucide="alert-triangle" style="width:48px;height:48px;"></i></div>
         <p style="font-size:1.1rem;">${msg}</p>
-        <a href="cars.html" class="btn btn-outline btn-sm" style="margin-top:16px;">← Back to Fleet</a>
+        <a href="cars.html" class="btn btn-outline btn-sm" style="margin-top:16px;"><i data-lucide="arrow-left" style="width:16px;height:16px;vertical-align:middle;"></i> Back to Fleet</a>
       </div>`;
+    if (window.lucide) lucide.createIcons();
   }
 }

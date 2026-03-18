@@ -3884,3 +3884,102 @@ textarea.form-input {
 .navbar-toggle {
   cursor: pointer;
 }
+
+/* ============================================
+   MESSAGES DROPDOWN
+   ============================================ */
+.messages-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.messages-dropdown-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.messages-dropdown-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-light);
+  color: var(--accent);
+}
+
+.messages-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+.messages-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 320px;
+  max-height: 450px;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+
+.messages-dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item {
+  cursor: default;
+}
+
+.message-item:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Scrollbar for message list */
+.messages-dropdown-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.messages-dropdown-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messages-dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 2px;
+}

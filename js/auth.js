@@ -5,7 +5,7 @@
 ============================================================ */
 
 const Session = {
-  KEY: "luxedrive_session",
+  KEY: 'luxedrive_session',
 
   save(data, persist = false) {
     const payload = JSON.stringify(data);
@@ -14,8 +14,7 @@ const Session = {
   },
 
   load() {
-    const raw =
-      sessionStorage.getItem(this.KEY) || localStorage.getItem(this.KEY);
+    const raw = sessionStorage.getItem(this.KEY) || localStorage.getItem(this.KEY);
     try {
       return raw ? JSON.parse(raw) : null;
     } catch {
@@ -37,43 +36,53 @@ const Session = {
     }
     return true;
   },
-
+  
   getUser() {
     const s = this.load();
     return s ? s.user : null;
-  },
+  }
 };
 
 function logoutUser() {
   Session.clear();
-  window.location.href = "index.html";
+  window.location.href = 'index.html';
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const isLoggedIn = Session.isLoggedIn();
-  const currentPage = document.body.dataset.page;
+document.addEventListener('DOMContentLoaded', () => {
+    const isLoggedIn = Session.isLoggedIn();
+    const currentPage = document.body.dataset.page;
 
-  // Redirect logged-in users away from auth pages
-  if (isLoggedIn && (currentPage === "login" || currentPage === "register")) {
-    window.location.href = "index.html";
-    return;
-  }
+    // Redirect logged-in users away from auth pages
+    if (isLoggedIn && (currentPage === 'login' || currentPage === 'register')) {
+        window.location.href = 'index.html';
+        return;
+    }
 
-  if (isLoggedIn) {
-    const user = Session.getUser();
-    const navbarActions = document.querySelector(".navbar-actions");
+    if (isLoggedIn) {
+        const user = Session.getUser();
+        const navbarActions = document.querySelector('.navbar-actions');
+        
+        if (navbarActions) {
+            const userName = user?.firstName || 'User';
+            
+            navbarActions.innerHTML = `
+                <div class="messages-dropdown">
+                    <button class="messages-dropdown-btn" title="Messages">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <span class="messages-badge" id="nav-messages-badge" style="display:none;">0</span>
+                    </button>
+                    <div class="messages-dropdown-menu">
+                        <div class="dropdown-header">
+                            <strong>Messages</strong>
+                        </div>
+                        <div class="messages-list" id="nav-messages-list">
+                            <div class="dropdown-item text-muted" style="font-size:0.8rem; padding:20px; text-align:center;">
+                                Loading messages...
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    if (navbarActions) {
-      const userName = user?.firstName || "User";
-
-      navbarActions.innerHTML = `
-                <button class="messages-btn" id="messages-btn" title="Messages">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/>
-                        <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/>
-                    </svg>
-                    <span class="messages-dot" id="messages-dot" style="display: none;"></span>
-                </button>
                 <div class="user-dropdown">
                     <button class="user-dropdown-btn">
                         <span class="user-avatar">${userName.charAt(0).toUpperCase()}</span>
@@ -82,12 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     </button>
                     <div class="user-dropdown-menu">
                         <div class="dropdown-header">
-                            <strong>${user?.firstName || ""} ${user?.lastName || ""}</strong>
-                            <span>${user?.email || ""}</span>
+                            <strong>${user?.firstName || ''} ${user?.lastName || ''}</strong>
+                            <span>${user?.email || ''}</span>
                         </div>
                         <hr class="dropdown-divider">
                         <a href="dashboard.html" class="dropdown-item">
                             <span>Dashboard</span>
+                        </a>
+                        <a href="addRental.html" class="dropdown-item">
+                            <span>Add Rental</span>
                         </a>
                         <button onclick="logoutUser()" class="dropdown-item text-danger">
                             <span>Log out</span>
@@ -95,95 +107,150 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             `;
+            
+            if (window.lucide) lucide.createIcons();
+            
+            // Setup dropdown toggle
+            const dropdownBtn = navbarActions.querySelector('.user-dropdown-btn');
+            const dropdownMenu = navbarActions.querySelector('.user-dropdown-menu');
+            
+            if (dropdownBtn && dropdownMenu) {
+                dropdownBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    navbarActions.querySelector('.messages-dropdown-menu')?.classList.remove('active');
+                    dropdownMenu.classList.toggle('active');
+                });
+            }
 
-      // Setup messages button
-      const messagesBtn = navbarActions.querySelector("#messages-btn");
-      if (messagesBtn) {
-        messagesBtn.addEventListener("click", () => {
-          // For now, just show an alert. This can be replaced with actual messages modal
-          alert("Messages feature coming soon!");
-        });
-      }
+            // Setup messages toggle
+            const msgBtn = navbarActions.querySelector('.messages-dropdown-btn');
+            const msgMenu = navbarActions.querySelector('.messages-dropdown-menu');
 
-      // Check for new messages (placeholder - replace with actual API call)
-      checkForNewMessages();
+            if (msgBtn && msgMenu) {
+                msgBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdownMenu?.classList.remove('active');
+                    msgMenu.classList.toggle('active');
+                    if (msgMenu.classList.contains('active')) {
+                        loadNavbarMessages(user?.phone);
+                    }
+                });
+            }
+                
+            // Close when clicking outside
+            document.addEventListener('click', () => {
+                dropdownMenu?.classList.remove('active');
+                msgMenu?.classList.remove('active');
+            });
 
-      // Setup dropdown toggle
-      const dropdownBtn = navbarActions.querySelector(".user-dropdown-btn");
-      const dropdownMenu = navbarActions.querySelector(".user-dropdown-menu");
-
-      if (dropdownBtn && dropdownMenu) {
-        dropdownBtn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          dropdownMenu.classList.toggle("active");
-        });
-
-        // Close when clicking outside
-        document.addEventListener("click", () => {
-          dropdownMenu.classList.remove("active");
-        });
-      }
+            // Initial message count check
+            if (user?.phone) {
+                updateMessageBadge(user.phone);
+            }
+        }
     }
-  }
-
-  // Auto-fill booking form if logged in
-  if (isLoggedIn && currentPage === "booking") {
-    const user = Session.getUser();
-    if (user) {
-      const nameField = document.getElementById("booking-name");
-      const emailField = document.getElementById("booking-email");
-      const phoneField = document.getElementById("booking-phone");
-
-      if (nameField) {
-        nameField.value =
-          `${user.firstName || ""} ${user.lastName || ""}`.trim();
-      }
-      if (emailField) {
-        emailField.value = user.email || "";
-      }
-      if (phoneField) {
-        phoneField.value = user.phone || "";
-      }
-    }
-  }
-
-  // Update dashboard user info if logged in
-  if (isLoggedIn && currentPage === "dashboard") {
-    const user = Session.getUser();
-    if (user) {
-      const avatar = document.querySelector(".dashboard-avatar");
-      const name = document.querySelector(".dashboard-user h3");
-      const email = document.querySelector(".dashboard-user p");
-
-      if (avatar) {
-        avatar.textContent = (user.firstName || "U").charAt(0).toUpperCase();
-      }
-      if (name) {
-        name.textContent =
-          `${user.firstName || ""} ${user.lastName || ""}`.trim() || "User";
-      }
-      if (email) {
-        email.textContent = user.email || "";
-      }
-    }
-  }
 });
 
-// Function to check for new messages
-function checkForNewMessages() {
-  // Placeholder: Simulate checking for messages
-  // In a real app, this would make an API call to check for unread messages
-  const hasNewMessages = Math.random() > 0.7; // 30% chance of having messages for demo
+async function updateMessageBadge(phone) {
+    try {
+        const res = await fetch(`https://rentcar.stepprojects.ge/Message/Messages?phoneNumber=${encodeURIComponent(phone)}`);
+        if (res.ok) {
+            const messages = await res.json();
+            const badge = document.getElementById('nav-messages-badge');
+            if (badge) {
+                if (messages.length > 0) {
+                    badge.textContent = messages.length;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        }
+    } catch (err) {
+        console.error("Failed to update message badge:", err);
+    }
+}
 
-  const messagesDot = document.getElementById("messages-dot");
-  if (messagesDot) {
-    messagesDot.style.display = hasNewMessages ? "block" : "none";
+async function loadNavbarMessages(phone) {
+    const list = document.getElementById('nav-messages-list');
+    if (!list) return;
+
+    try {
+        const res = await fetch(`https://rentcar.stepprojects.ge/Message/Messages?phoneNumber=${encodeURIComponent(phone)}`);
+        if (res.ok) {
+            const messages = await res.json();
+            renderNavbarMessages(messages);
+        } else {
+            list.innerHTML = `<div class="dropdown-item text-muted" style="font-size:0.8rem; padding:20px; text-align:center;">Failed to load messages.</div>`;
+        }
+    } catch (err) {
+        console.error("Failed to load navbar messages:", err);
+        list.innerHTML = `<div class="dropdown-item text-muted" style="font-size:0.8rem; padding:20px; text-align:center;">Error loading messages.</div>`;
+    }
+}
+
+function renderNavbarMessages(messages) {
+    const list = document.getElementById('nav-messages-list');
+    if (!list) return;
+
+    if (messages.length === 0) {
+        list.innerHTML = `<div class="dropdown-item text-muted" style="font-size:0.8rem; padding:20px; text-align:center;">No messages found.</div>`;
+        return;
+    }
+
+    list.innerHTML = messages.map((msg, index) => {
+        // Handle both object and string format
+        const text = typeof msg === 'string' ? msg : (msg.messageText || 'No content');
+        const id = typeof msg === 'string' ? (index + 1) : (msg.id || (index + 1));
+        
+        return `
+            <div class="dropdown-item message-item" style="flex-direction:column; align-items:flex-start; gap:4px; padding:12px 16px; border-bottom:1px solid var(--border);">
+                <div style="font-weight:600; font-size:0.85rem; color:var(--text);">${id ? 'Message #' + id : 'Notification'}</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">${text}</div>
+            </div>
+        `;
+    }).join('');
+}
+
+/* ============================================================
+   SHARED FEATURES
+============================================================ */
+async function toggleFavorite(event, carId) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  if (!Session.isLoggedIn()) {
+    alert("Please sign in to add cars to your favorites.");
+    window.location.href = `login.html?return=${encodeURIComponent(window.location.pathname)}`;
+    return;
   }
 
-  // In production, replace with actual API call:
-  // fetch('/api/messages/unread')
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     messagesDot.style.display = data.count > 0 ? "block" : "none";
-  //   });
+  const user = Session.getUser();
+  const phone = user?.phone;
+
+  if (!phone) {
+    alert("User phone number missing. Try logging in again.");
+    return;
+  }
+
+  const btn = event.currentTarget;
+
+  try {
+    const res = await fetch(`https://rentcar.stepprojects.ge/api/Users/${encodeURIComponent(phone)}/favorites/${carId}`, {
+      method: "POST",
+      headers: { "accept": "*/*" }
+    });
+
+    if (res.ok) {
+      btn.classList.add("active");
+      console.log(`Car ${carId} added to favorites.`);
+    } else {
+      const err = await res.text();
+      console.error("Failed to favorite:", err);
+      // alert("Could not add to favorites. It might already be in your list.");
+      btn.classList.add("active"); // Still show active if it's already favorited
+    }
+  } catch (err) {
+    console.error("Error favoriting:", err);
+  }
 }

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ — LuxeDrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      .faq-item {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        margin-bottom: 16px;
+        overflow: hidden;
+      }
+      .faq-question {
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+      .faq-question:hover {
+        background: var(--bg-card-hover);
+        color: var(--accent);
+      }
+      .faq-answer {
+        padding: 0 24px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      .faq-item.active .faq-answer {
+        padding: 0 24px 20px 24px;
+        max-height: 200px;
+      }
+      .faq-item.active .faq-question svg {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body data-page="faq">
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <div class="brand-icon">
+            <img src="logo/LuxDrive-logo.png" />
+          </div>
+        </a>
+        <div class="navbar-nav">
+          <a href="index.html">Home</a>
+          <a href="cars.html">Cars</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="navbar-actions">
+          <a href="login.html" class="btn btn-ghost btn-sm">Sign In</a>
+          <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+        <div class="navbar-toggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <h1>Frequently Asked <span class="text-accent">Questions</span></h1>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="separator">/</span>
+        <span>FAQ</span>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <section class="section">
+      <div class="container">
+        <div class="max-w-3xl mx-auto">
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                How do I book a car?
+                <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="faq-answer">
+                Simply browse our fleet on the "Cars" page, select your vehicle, choose your dates, and proceed to checkout via PayPal.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What documents do I need?
+                <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="faq-answer">
+                You will need a valid driver's license, a passport or national ID, and a credit card for the security deposit.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                Can I return the car in a different city?
+                <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="faq-answer">
+                One-way rentals are available for an additional fee. Please contact our support team to arrange this before your trip.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is included in the price?
+                <i data-lucide="chevron-down" style="width:20px;height:20px;"></i>
+              </div>
+              <div class="faq-answer">
+                The price includes the vehicle rental, basic insurance, and 200km of mileage per day. Fuel and extra protection packages are separate.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p>© 2026 LuxeDrive. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+      lucide.createIcons();
+      
+      // FAQ Accordion
+      document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+          const item = q.parentElement;
+          const isActive = item.classList.contains('active');
+          
+          document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>

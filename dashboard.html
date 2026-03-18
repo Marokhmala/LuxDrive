@@ -1,310 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard — LuxeDrive</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body data-page="dashboard">
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <div class="container">
-        <a href="index.html" class="navbar-brand">
-          <div class="brand-icon">
-            <img src="logo/LuxDrive-logo.png" />
-          </div>
-        </a>
-        <div class="navbar-nav">
-          <a href="index.html">Home</a>
-          <a href="cars.html">Cars</a>
-          <a href="about.html">About</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="navbar-actions">
-          <a href="index.html" class="btn btn-ghost btn-sm">Sign Out</a>
-        </div>
-        <div class="navbar-toggle" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </nav>
 
-    <!-- PAGE HEADER -->
-    <div class="page-header">
-      <h1>My <span class="text-accent">Dashboard</span></h1>
-      <div class="breadcrumb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — LuxeDrive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body data-page="dashboard">
+
+  <!-- NAVBAR -->
+  <nav class="navbar scrolled">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon">
+          <img src="logo/LuxDrive-logo.png" />
+        </div>
+      </a>
+      <div class="navbar-nav">
         <a href="index.html">Home</a>
-        <span class="separator">/</span>
-        <span>Dashboard</span>
+        <a href="cars.html">Cars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
       </div>
+      <div class="navbar-actions">
+        <a href="#" onclick="logoutUser()" class="btn btn-ghost btn-sm">Sign Out</a>
+      </div>
+      <div class="navbar-toggle" aria-label="Menu"><span></span><span></span><span></span></div>
     </div>
+  </nav>
 
-    <!-- DASHBOARD -->
-    <section class="dashboard-section">
-      <div class="container">
-        <div class="dashboard-layout">
-          <!-- SIDEBAR -->
-          <aside class="dashboard-sidebar">
-            <div class="dashboard-user">
-              <div class="dashboard-avatar">JD</div>
-              <h3>John Doe</h3>
-              <p>john@example.com</p>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>My <span class="text-accent">Dashboard</span></h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <span>Dashboard</span>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <section class="dashboard-section">
+    <div class="container">
+      <div class="dashboard-layout">
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+          <div class="dashboard-user">
+            <div class="dashboard-avatar">JD</div>
+            <h3>John Doe</h3>
+            <p>john@example.com</p>
+          </div>
+          <nav class="dashboard-nav">
+            <a href="#" class="active" data-tab="bookings"><i data-lucide="clipboard-list" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> My Bookings</a>
+            <a href="addRental.html" class="dropdown-item" style="display:flex; align-items:center; color:var(--accent); font-weight:600; margin:10px 0; border:1px dashed var(--accent); padding:10px; border-radius:8px; text-decoration:none;">
+              <i data-lucide="plus-circle" style="width:16px;height:16px;margin-right:8px;"></i> List Your Car
+            </a>
+            <a href="#" data-tab="profile"><i data-lucide="user" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Profile</a>
+            <a href="#" data-tab="favorites"><i data-lucide="heart" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Favorites</a>
+            <a href="#" data-tab="listings"><i data-lucide="car" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> My Listings</a>
+            <a href="#" onclick="logoutUser()"><i data-lucide="log-out" style="width:16px;height:16px;vertical-align:middle;margin-right:8px;"></i> Sign Out</a>
+          </nav>
+        </aside>
+
+        <!-- CONTENT -->
+        <div class="dashboard-content">
+          <!-- Stats -->
+          <div class="dashboard-stats" id="dashboard-stats-grid">
+            <div class="stat-card">
+              <div class="stat-card-icon"><i data-lucide="clipboard-list"></i></div>
+              <h3 id="stat-bookings-count">0</h3>
+              <p>Total Bookings</p>
             </div>
-            <nav class="dashboard-nav">
-              <a href="#" class="active" data-tab="bookings">📋 My Bookings</a>
-              <a href="#" data-tab="profile">👤 Profile Settings</a>
-              <a href="#" data-tab="favorites">♥ Favorites</a>
-              <a href="#" data-tab="payments">💳 Payment Methods</a>
-              <a href="index.html">🚪 Sign Out</a>
-            </nav>
-          </aside>
-
-          <!-- CONTENT -->
-          <div class="dashboard-content">
-            <!-- Stats -->
-            <div class="dashboard-stats">
-              <div
-                class="stat-card"
-                onclick="window.location.href = 'addRental.html'"
-              >
-                <div class="stat-card-icon">📋</div>
-                <h3 id="total-bookings">0</h3>
-                <p>Total Bookings</p>
-                <div class="stat-card-hover">Add Rental →</div>
-              </div>
-              <div
-                class="stat-card"
-                onclick="window.location.href = 'addRental.html'"
-              >
-                <div class="stat-card-icon">🚗</div>
-                <h3 id="active-rentals">0</h3>
-                <p>Active Rentals</p>
-                <div class="stat-card-hover">Add Rental →</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-card-icon">💰</div>
-                <h3 id="total-spent">$0</h3>
-                <p>Total Spent</p>
-                <div class="stat-card-hover">No spending yet →</div>
-              </div>
+            <div class="stat-card">
+              <div class="stat-card-icon"><i data-lucide="car"></i></div>
+              <h3 id="stat-favorites-count">0</h3>
+              <p>Favorites</p>
             </div>
-
-            <!-- Bookings Tab -->
-            <div class="dashboard-tab" data-tab="bookings">
-              <h2>My Bookings</h2>
-              <div class="booking-list" id="bookings-list">
-                <!-- Rendered by JS -->
-              </div>
+            <div class="stat-card">
+              <div class="stat-card-icon"><i data-lucide="layout"></i></div>
+              <h3 id="stat-listings-count">0</h3>
+              <p>My Listings</p>
             </div>
+          </div>
 
-            <!-- Profile Tab -->
-            <div class="dashboard-tab" data-tab="profile" style="display: none">
-              <h2>Profile Settings</h2>
-              <div class="booking-card" style="margin-top: 20px">
-                <div class="form-grid-2">
-                  <div class="form-group">
-                    <label class="form-label">Full Name</label>
-                    <input type="text" class="form-input" value="John Doe" />
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input
-                      type="email"
-                      class="form-input"
-                      value="john@example.com"
-                    />
-                  </div>
-                </div>
-                <div class="form-grid-2">
-                  <div class="form-group">
-                    <label class="form-label">Phone</label>
-                    <input
-                      type="tel"
-                      class="form-input"
-                      value="+1 (555) 123-4567"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Location</label>
-                    <input
-                      type="text"
-                      class="form-input"
-                      value="New York, NY"
-                    />
-                  </div>
+          <!-- Bookings Tab -->
+          <div class="dashboard-tab" data-tab="bookings">
+            <h2>My Bookings</h2>
+            <div class="booking-list" id="bookings-list">
+              <!-- Rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Profile Tab -->
+          <div class="dashboard-tab" data-tab="profile" style="display:none">
+            <h2>Profile Settings</h2>
+            <div class="booking-card" style="margin-top:20px">
+              <div class="alert alert-warning"
+                style="background:rgba(245, 210, 35, 0.1); border:1px solid var(--accent); color:var(--accent); padding:12px 16px; border-radius:var(--radius-sm); margin-bottom:20px; font-size:0.9rem;">
+                <strong>Note:</strong> You can't change your info because ITStep back-end devs are lazy.
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-input" id="profile-first-name" readonly>
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Driver's License</label>
-                  <input type="text" class="form-input" value="DL-12345678" />
+                  <label class="form-label">Last Name</label>
+                  <input type="text" class="form-input" id="profile-last-name" readonly>
                 </div>
-                <button
-                  class="btn btn-primary"
-                  onclick="
-                    App.showToast(
-                      'success',
-                      'Saved',
-                      'Profile updated successfully',
-                    )
-                  "
-                  style="margin-top: 8px"
-                >
-                  Save Changes
-                </button>
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-input" id="profile-email" readonly>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-input" id="profile-phone" readonly>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Role</label>
+                <input type="text" class="form-input" id="profile-role" readonly>
               </div>
             </div>
+          </div>
 
-            <!-- Favorites Tab -->
-            <div
-              class="dashboard-tab"
-              data-tab="favorites"
-              style="display: none"
-            >
-              <h2>My Favorites</h2>
-              <p class="text-muted" style="margin-top: 16px">
-                You haven't added any favorites yet. Browse our
-                <a href="cars.html" style="color: var(--accent)">fleet</a> to
-                add cars to your wishlist.
-              </p>
+          <!-- Favorites Tab -->
+          <div class="dashboard-tab" data-tab="favorites" style="display:none">
+            <h2>My Favorites</h2>
+            <div class="cars-grid-listing" id="favorites-list" style="margin-top:20px">
+              <!-- Rendered by JS -->
             </div>
+          </div>
 
-            <!-- Payments Tab -->
-            <div
-              class="dashboard-tab"
-              data-tab="payments"
-              style="display: none"
-            >
-              <h2>Payment Methods</h2>
-              <div class="booking-card" style="margin-top: 20px">
-                <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 16px;
-                    background: var(--bg);
-                    border-radius: var(--radius-sm);
-                    margin-bottom: 12px;
-                  "
-                >
-                  <div style="display: flex; align-items: center; gap: 12px">
-                    <span style="font-size: 1.5rem">💳</span>
-                    <div>
-                      <strong>•••• •••• •••• 4242</strong><br />
-                      <small class="text-muted">Expires 12/27</small>
-                    </div>
-                  </div>
-                  <span class="badge badge-success">Default</span>
-                </div>
-                <button class="btn btn-outline btn-sm">+ Add New Card</button>
-              </div>
+          <!-- Listings Tab -->
+          <div class="dashboard-tab" data-tab="listings" style="display:none">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+              <h2 style="margin:0">My Listings</h2>
+              <a href="addRental.html" class="btn btn-primary btn-sm"><i data-lucide="plus" style="width:14px;height:14px;vertical-align:middle;margin-right:4px;"></i> Add New Listing</a>
+            </div>
+            <div class="cars-grid-listing" id="listings-list">
+              <!-- Rendered by JS -->
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-bottom">
-          <p>© 2026 LuxeDrive. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="#">Privacy</a><a href="#">Terms</a>
-          </div>
-        </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 LuxeDrive. All rights reserved.</p>
+        <div class="footer-bottom-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a><a href="rental-policy.html">Policy</a></div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="js/app.js"></script>
-    <script src="js/auth.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Check if user is logged in
-        if (!Session.isLoggedIn()) {
-          window.location.href = "login.html";
-          return;
-        }
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
 
-        // Get user data
-        const user = Session.getUser();
-        if (user) {
-          // Update dashboard user info
-          const avatarEl = document.querySelector(".dashboard-avatar");
-          const nameEl = document.querySelector(".dashboard-user h3");
-          const emailEl = document.querySelector(".dashboard-user p");
+</html>
+<script src="js/auth.js"></script>
+</body>
 
-          if (avatarEl && user.firstName) {
-            avatarEl.textContent = user.firstName.charAt(0).toUpperCase();
-          }
-
-          if (nameEl) {
-            const fullName =
-              [user.firstName, user.lastName].filter(Boolean).join(" ") ||
-              "User";
-            nameEl.textContent = fullName;
-          }
-
-          if (emailEl && user.email) {
-            emailEl.textContent = user.email;
-          }
-        }
-
-        // Update rental stats
-        updateRentalStats();
-      });
-
-      // Function to update rental statistics
-      function updateRentalStats() {
-        // Get user cars from localStorage
-        const userCars = JSON.parse(localStorage.getItem("userCars") || "[]");
-
-        // Update the stats display
-        const totalBookingsEl = document.getElementById("total-bookings");
-        const activeRentalsEl = document.getElementById("active-rentals");
-        const totalBookingsCard = totalBookingsEl?.closest(".stat-card");
-        const activeRentalsCard = activeRentalsEl?.closest(".stat-card");
-
-        if (totalBookingsEl) {
-          totalBookingsEl.textContent = userCars.length;
-        }
-
-        if (activeRentalsEl) {
-          activeRentalsEl.textContent = userCars.length;
-        }
-
-        // Update hover text based on whether user has cars
-        if (totalBookingsCard) {
-          const hoverText = totalBookingsCard.querySelector(".stat-card-hover");
-          if (hoverText) {
-            hoverText.textContent =
-              userCars.length > 0 ? "View Cars →" : "Add Rental →";
-          }
-          // Update click behavior
-          totalBookingsCard.onclick =
-            userCars.length > 0
-              ? () => (window.location.href = "cars.html")
-              : () => (window.location.href = "addRental.html");
-        }
-
-        if (activeRentalsCard) {
-          const hoverText = activeRentalsCard.querySelector(".stat-card-hover");
-          if (hoverText) {
-            hoverText.textContent =
-              userCars.length > 0 ? "View Cars →" : "Add Rental →";
-          }
-          // Update click behavior
-          activeRentalsCard.onclick =
-            userCars.length > 0
-              ? () => (window.location.href = "cars.html")
-              : () => (window.location.href = "addRental.html");
-        }
-      }
-    </script>
-  </body>
 </html>

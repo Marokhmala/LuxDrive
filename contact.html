@@ -12,6 +12,7 @@
     />
 
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <script
       type="text/javascript"
@@ -76,7 +77,7 @@
 
             <div class="contact-info-cards">
               <div class="contact-info-card">
-                <div class="contact-info-icon">📧</div>
+                <div class="contact-info-icon"><i data-lucide="mail"></i></div>
                 <div>
                   <h4>Email</h4>
                   <p>car.rental@luxdrive.com</p>
@@ -84,7 +85,7 @@
               </div>
 
               <div class="contact-info-card">
-                <div class="contact-info-icon">📞</div>
+                <div class="contact-info-icon"><i data-lucide="phone"></i></div>
                 <div>
                   <h4>Phone</h4>
                   <p>+995 32 2 123 456</p>
@@ -92,15 +93,15 @@
               </div>
 
               <div class="contact-info-card">
-                <div class="contact-info-icon">📍</div>
+                <div class="contact-info-icon"><i data-lucide="map-pin"></i></div>
                 <div>
                   <h4>Location</h4>
-                  <p>Station Square meshvide shesaxvevi ヅ</p>
+                  <p>Station Square meshvide shesaxvevi</p>
                 </div>
               </div>
 
               <div class="contact-info-card">
-                <div class="contact-info-icon">🕐</div>
+                <div class="contact-info-icon"><i data-lucide="clock"></i></div>
                 <div>
                   <h4>Business Hours</h4>
                   <p>Mon-Sat: 8AM-8PM • Sun: 10AM-6PM</p>
@@ -189,7 +190,7 @@
               </div>
 
               <button type="submit" class="btn btn-primary btn-block btn-lg">
-                Send Message →
+                Send Message <i data-lucide="arrow-right" style="width:20px;height:20px;vertical-align:middle;"></i>
               </button>
             </form>
           </div>
@@ -211,10 +212,10 @@
             <p>Premium luxury car rentals for the discerning driver.</p>
 
             <div class="footer-social">
-              <a href="#">𝕏</a>
-              <a href="#">𝕗</a>
-              <a href="#">📷</a>
-              <a href="#">in</a>
+              <a href="#"><i data-lucide="twitter" style="width:18px;height:18px;"></i></a>
+              <a href="#"><i data-lucide="facebook" style="width:18px;height:18px;"></i></a>
+              <a href="#"><i data-lucide="instagram" style="width:18px;height:18px;"></i></a>
+              <a href="#"><i data-lucide="linkedin" style="width:18px;height:18px;"></i></a>
             </div>
           </div>
 
@@ -230,9 +231,10 @@
           <div class="footer-column">
             <h4>Support</h4>
             <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Privacy</a></li>
-              <li><a href="#">Terms</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="rental-policy.html">Rental Policy</a></li>
             </ul>
           </div>
 
@@ -249,8 +251,8 @@
           <p>© 2026 LuxeDrive. All rights reserved.</p>
 
           <div class="footer-bottom-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
           </div>
         </div>
       </div>
@@ -312,6 +314,9 @@
               submitBtn.textContent = originalText;
             });
         });
+    </script>
+    <script>
+      lucide.createIcons();
     </script>
   </body>
 </html>
