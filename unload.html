@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resetting Loading Screen...</title>
+</head>
+<body style="background: #0b0b0b; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
+    <div style="text-align: center;">
+        <p>Resetting preferences and redirecting...</p>
+    </div>
+
+    <script>
+        // Remove ONLY the loading screen flag from localStorage
+        localStorage.removeItem("luxedrive_intro_seen");
+        
+        // Also clear the cookie just in case it was set previously
+        document.cookie = "luxedrive_intro_seen=; max-age=0; path=/";
+        
+        // Redirect to index.html
+        window.location.href = 'index.html';
+    </script>
+</body>
+</html>

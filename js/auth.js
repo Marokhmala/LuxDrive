@@ -48,6 +48,7 @@ function logoutUser() {
   window.location.href = 'index.html';
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const isLoggedIn = Session.isLoggedIn();
     const currentPage = document.body.dataset.page;
@@ -254,3 +255,35 @@ async function toggleFavorite(event, carId) {
     console.error("Error favoriting:", err);
   }
 }
+
+/* ============================================================
+   MOBILE MENU LOGIC
+============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".navbar-toggle");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  if (toggle && sidebar && overlay) {
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("active");
+      sidebar.classList.toggle("active");
+      overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      toggle.classList.remove("active");
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+
+    const links = sidebar.querySelectorAll("a");
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        toggle.classList.remove("active");
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+    });
+  }
+});

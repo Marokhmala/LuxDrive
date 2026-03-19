@@ -3983,3 +3983,137 @@ textarea.form-input {
   background: var(--border-light);
   border-radius: 2px;
 }
+
+/* ============================================
+   RESPONSIVE DESIGN & MOBILE MENU
+   ============================================ */
+@media (max-width: 900px) {
+  /* Navbar */
+  .navbar-nav,
+  .navbar-actions {
+    display: none;
+  }
+  
+  .navbar-toggle {
+    display: flex;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
+    z-index: 1050;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px 20px;
+  }
+  
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  .sidebar a {
+    padding: 15px 0;
+    font-size: 1.1rem;
+    color: var(--text);
+    border-bottom: 1px solid var(--border-light);
+    display: block;
+    text-align: left;
+  }
+  
+  .sidebar a:hover {
+    color: var(--accent);
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 1040;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Hero Overrides */
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.8rem);
+  }
+  .hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .hero-badge {
+    margin: 0 auto 28px;
+  }
+  .hero-description {
+    margin: 0 auto 40px;
+  }
+  .hero-car img {
+    max-width: 100%;
+  }
+
+  /* Forms & Grid Overrides */
+  .search-box-inner {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid,
+  .how-steps,
+  .choose-grid,
+  .best-cars-grid,
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* Cars.html specifics */
+  .listing-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .filters-sidebar {
+    position: relative;
+    max-height: none;
+    overflow-y: visible;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 24px;
+  }
+  .car-grid-header {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .car-grid-header p, .car-grid-header select {
+    width: 100%;
+  }
+  .cars-grid-listing {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
